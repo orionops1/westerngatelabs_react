@@ -35,9 +35,9 @@ export default function Button({
       "shadow-lg shadow-blue-900/30",
     ].join(" "),
     secondary:
-      "bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20 disabled:opacity-50",
+      "bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200 hover:border-slate-300 disabled:opacity-50",
     outline:
-      "border border-blue-500 text-blue-400 hover:bg-blue-500/10 disabled:opacity-50",
+      "border border-blue-600 text-blue-600 hover:bg-blue-50 disabled:opacity-50",
     ghost:
       "text-slate-400 hover:text-white hover:bg-white/5 disabled:opacity-50",
   };

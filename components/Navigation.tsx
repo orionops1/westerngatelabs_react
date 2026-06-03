@@ -5,140 +5,129 @@ import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 import { Menu, X, ChevronDown, Brain, Shield, Globe } from "lucide-react";
 
-const solutions = [
+const serviceGroups = [
   {
     group: "AI Solutions",
     icon: Brain,
     href: "/ai-solutions",
-    color: "text-blue-400",
-    bg: "bg-blue-500/10",
+    color: "text-blue-600",
+    bg: "bg-blue-50",
     children: [
-      { label: "AI Website Chatbots",        href: "/ai-solutions#chatbots"   },
-      { label: "AI Knowledge Assistants",    href: "/ai-solutions#assistants" },
-      { label: "AI Content Generation",      href: "/ai-solutions#content"    },
-      { label: "AI Business Automation",     href: "/ai-solutions#automation" },
-      { label: "Custom AI Solutions",        href: "/ai-solutions#custom"     },
+      { label: "AI Website Chatbots",     href: "/ai-solutions#chatbots"   },
+      { label: "AI Knowledge Assistants", href: "/ai-solutions#assistants" },
+      { label: "AI Content Generation",   href: "/ai-solutions#content"    },
+      { label: "AI Business Automation",  href: "/ai-solutions#automation" },
+      { label: "Custom AI Solutions",     href: "/ai-solutions#custom"     },
     ],
   },
   {
     group: "Cybersecurity",
     icon: Shield,
     href: "/cybersecurity",
-    color: "text-violet-400",
-    bg: "bg-violet-500/10",
+    color: "text-violet-600",
+    bg: "bg-violet-50",
     children: [
-      { label: "Security Assessments",       href: "/cybersecurity#assessments"   },
-      { label: "Vulnerability Assessments",  href: "/cybersecurity#vulnerability" },
-      { label: "Security Consulting",        href: "/cybersecurity#consulting"    },
-      { label: "Website Security Audits",    href: "/cybersecurity#audits"        },
+      { label: "Security Assessments",      href: "/cybersecurity#assessments"   },
+      { label: "Vulnerability Assessments", href: "/cybersecurity#vulnerability" },
+      { label: "Security Consulting",       href: "/cybersecurity#consulting"    },
+      { label: "Website Security Audits",   href: "/cybersecurity#audits"        },
     ],
   },
   {
     group: "Digital Solutions",
     icon: Globe,
     href: "/digital-solutions",
-    color: "text-cyan-400",
-    bg: "bg-cyan-500/10",
+    color: "text-cyan-600",
+    bg: "bg-cyan-50",
     children: [
-      { label: "Business Websites",          href: "/digital-solutions#websites"   },
-      { label: "WordPress Development",      href: "/digital-solutions#wordpress"  },
-      { label: "Next.js Development",        href: "/digital-solutions#nextjs"     },
-      { label: "Landing Pages",              href: "/digital-solutions#landing"    },
-      { label: "E-Commerce Websites",        href: "/digital-solutions#ecommerce"  },
+      { label: "Business Websites",    href: "/digital-solutions#websites"  },
+      { label: "WordPress Development",href: "/digital-solutions#wordpress" },
+      { label: "Next.js Development",  href: "/digital-solutions#nextjs"    },
+      { label: "Landing Pages",        href: "/digital-solutions#landing"   },
+      { label: "E-Commerce Websites",  href: "/digital-solutions#ecommerce" },
     ],
   },
 ];
 
-const topNav = [
-  { label: "Services",   href: "/services"   },
+const otherNav = [
   { label: "Industries", href: "/industries" },
-  { label: "About",      href: "/about"      },
   { label: "Blog",       href: "/blog"       },
 ];
 
 export default function Navigation() {
-  const [isOpen, setIsOpen]       = useState(false);
-  const [dropdown, setDropdown]   = useState(false);
-  const [mobileOpen, setMobileOpen] = useState<string | null>(null);
+  const [isOpen,    setIsOpen]    = useState(false);
+  const [dropdown,  setDropdown]  = useState(false);
+  const [mobOpen,   setMobOpen]   = useState(false);
   const pathname                  = usePathname();
-  const closeTimer                = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const timer                     = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isActive = (href: string) =>
-    href !== "#" && (pathname === href || pathname.startsWith(href.split("#")[0] + "/"));
+    pathname === href || pathname.startsWith(href.split("#")[0] + "/");
 
-  const handleMouseEnter = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setDropdown(true);
-  };
-  const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setDropdown(false), 120);
-  };
+  const openDrop  = () => { if (timer.current) clearTimeout(timer.current); setDropdown(true); };
+  const closeDrop = () => { timer.current = setTimeout(() => setDropdown(false), 130); };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#03050f]/90 backdrop-blur-xl border-b border-white/[0.06]">
+    <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 font-bold text-white hover:opacity-90 transition group flex-shrink-0">
-            <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-black text-xs tracking-tight">WG</span>
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center flex-shrink-0">
+              <span className="text-white font-black text-xs">WG</span>
             </div>
-            <span className="text-sm font-semibold tracking-wide hidden sm:inline">Western Gate Labs</span>
+            <span className="text-sm font-bold text-slate-900 tracking-tight hidden sm:inline">
+              Western Gate Labs
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
-            {/* Solutions mega-dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <button className="flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-white transition py-1">
-                Solutions
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${dropdown ? "rotate-180" : ""}`} />
+          <div className="hidden md:flex items-center gap-7">
+
+            {/* Services dropdown */}
+            <div className="relative" onMouseEnter={openDrop} onMouseLeave={closeDrop}>
+              <button className={`flex items-center gap-1 text-sm font-medium transition py-1 ${
+                dropdown ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+              }`}>
+                Services
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdown ? "rotate-180 text-blue-600" : ""}`} />
               </button>
 
               {dropdown && (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[620px]"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[640px]"
+                  onMouseEnter={openDrop}
+                  onMouseLeave={closeDrop}
                 >
-                  <div className="bg-[#07090f] border border-white/[0.08] rounded-2xl shadow-2xl shadow-black/60 overflow-hidden">
-                    <div className="grid grid-cols-3 gap-0">
-                      {solutions.map((sol, idx) => {
-                        const Icon = sol.icon;
+                  <div className="bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-200/60 overflow-hidden">
+                    <div className="grid grid-cols-3">
+                      {serviceGroups.map((grp, idx) => {
+                        const Icon = grp.icon;
                         return (
                           <div
-                            key={sol.group}
-                            className={`p-5 ${idx < solutions.length - 1 ? "border-r border-white/[0.06]" : ""}`}
+                            key={grp.group}
+                            className={`p-5 ${idx < serviceGroups.length - 1 ? "border-r border-slate-100" : ""}`}
                           >
-                            {/* Group header — links to main page */}
                             <Link
-                              href={sol.href}
-                              className="flex items-center gap-2 mb-3 group/header"
+                              href={grp.href}
                               onClick={() => setDropdown(false)}
+                              className="flex items-center gap-2 mb-3 group/h"
                             >
-                              <div className={`w-6 h-6 rounded-md ${sol.bg} flex items-center justify-center flex-shrink-0`}>
-                                <Icon className={`w-3.5 h-3.5 ${sol.color}`} />
+                              <div className={`w-6 h-6 rounded-md ${grp.bg} flex items-center justify-center`}>
+                                <Icon className={`w-3.5 h-3.5 ${grp.color}`} />
                               </div>
-                              <span className={`text-xs font-semibold ${sol.color} group-hover/header:opacity-80 transition`}>
-                                {sol.group}
-                              </span>
+                              <span className={`text-xs font-bold ${grp.color}`}>{grp.group}</span>
                             </Link>
-
-                            {/* Sub-items */}
                             <ul className="space-y-0.5">
-                              {sol.children.map((child) => (
-                                <li key={child.href}>
+                              {grp.children.map((c) => (
+                                <li key={c.href}>
                                   <Link
-                                    href={child.href}
-                                    className="block px-2 py-1.5 text-xs text-slate-400 hover:text-white hover:bg-white/5 rounded-md transition"
+                                    href={c.href}
                                     onClick={() => setDropdown(false)}
+                                    className="block px-2 py-1.5 text-xs text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-md transition"
                                   >
-                                    {child.label}
+                                    {c.label}
                                   </Link>
                                 </li>
                               ))}
@@ -147,18 +136,28 @@ export default function Navigation() {
                         );
                       })}
                     </div>
+                    <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                      <p className="text-xs text-slate-400">Not sure which service you need?</p>
+                      <Link
+                        href="/contact"
+                        onClick={() => setDropdown(false)}
+                        className="text-xs font-semibold text-blue-600 hover:text-blue-700 transition"
+                      >
+                        Talk to us →
+                      </Link>
+                    </div>
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Other nav items */}
-            {topNav.map((item) => (
+            {/* Other links */}
+            {otherNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`text-sm font-medium transition animated-link ${
-                  isActive(item.href) ? "text-white" : "text-slate-400 hover:text-white"
+                  isActive(item.href) ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 {item.label}
@@ -167,23 +166,23 @@ export default function Navigation() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:block flex-shrink-0">
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+            <Link href="/about" className="text-sm font-medium text-slate-500 hover:text-slate-900 transition">
+              About
+            </Link>
             <Link
               href="/contact"
-              className="px-5 py-2 text-sm font-semibold text-white rounded-lg transition relative overflow-hidden group"
-              style={{ background: "linear-gradient(135deg, #2563EB, #7C3AED)" }}
+              className="px-5 py-2 text-sm font-semibold text-white rounded-lg bg-blue-600 hover:bg-blue-700 transition shadow-sm"
             >
-              <span className="relative z-10">Get in Touch</span>
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition" />
+              Get in Touch
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden p-2 text-slate-400 hover:text-white transition rounded-lg hover:bg-white/5"
+            className="md:hidden p-2 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
-            aria-expanded={isOpen}
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -191,70 +190,74 @@ export default function Navigation() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden pb-5 pt-3 border-t border-white/[0.06] space-y-1">
-            {/* Solutions accordion */}
-            <div>
-              <button
-                onClick={() => setMobileOpen(mobileOpen === "solutions" ? null : "solutions")}
-                className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition"
-              >
-                Solutions
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileOpen === "solutions" ? "rotate-180" : ""}`} />
-              </button>
+          <div className="md:hidden pb-5 pt-3 border-t border-slate-100 space-y-1">
 
-              {mobileOpen === "solutions" && (
-                <div className="pl-3 mt-1 space-y-3">
-                  {solutions.map((sol) => {
-                    const Icon = sol.icon;
-                    return (
-                      <div key={sol.group}>
+            {/* Services accordion */}
+            <button
+              onClick={() => setMobOpen(!mobOpen)}
+              className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition"
+            >
+              Services
+              <ChevronDown className={`w-4 h-4 transition-transform text-slate-400 ${mobOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {mobOpen && (
+              <div className="pl-3 space-y-3 pb-2">
+                {serviceGroups.map((grp) => {
+                  const Icon = grp.icon;
+                  return (
+                    <div key={grp.group}>
+                      <Link
+                        href={grp.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center gap-2 px-3 py-1.5 text-xs font-bold ${grp.color}`}
+                      >
+                        <Icon className="w-3.5 h-3.5" /> {grp.group}
+                      </Link>
+                      {grp.children.map((c) => (
                         <Link
-                          href={sol.href}
-                          className={`flex items-center gap-2 px-3 py-1.5 text-xs font-semibold ${sol.color} hover:opacity-80 transition`}
+                          key={c.href}
+                          href={c.href}
                           onClick={() => setIsOpen(false)}
+                          className="block px-5 py-2 text-sm text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition"
                         >
-                          <Icon className="w-3.5 h-3.5" />
-                          {sol.group}
+                          {c.label}
                         </Link>
-                        {sol.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={child.href}
-                            className="block px-5 py-2 text-sm text-slate-400 hover:text-white hover:bg-white/5 rounded-lg transition"
-                            onClick={() => setIsOpen(false)}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
 
-            {/* Other items */}
-            {topNav.map((item) => (
+            {otherNav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2.5 text-sm rounded-lg transition ${
                   isActive(item.href)
-                    ? "text-blue-400 bg-blue-500/10"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
+                    ? "text-blue-600 bg-blue-50 font-medium"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                 }`}
-                onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
 
-            <div className="pt-2 px-0">
+            <Link
+              href="/about"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition"
+            >
+              About
+            </Link>
+
+            <div className="pt-2">
               <Link
                 href="/contact"
-                className="block w-full text-center px-4 py-3 text-sm font-semibold text-white rounded-lg"
-                style={{ background: "linear-gradient(135deg, #2563EB, #7C3AED)" }}
                 onClick={() => setIsOpen(false)}
+                className="block w-full text-center px-4 py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition"
               >
                 Get in Touch
               </Link>

@@ -18,28 +18,25 @@ export default function ServiceCard({
   features,
   accent = "blue",
 }: ServiceCardProps) {
-  const accentColors = {
-    blue:   { bg: "rgba(37,99,235,0.12)",  text: "text-blue-400",   border: "rgba(37,99,235,0.4)"  },
-    cyan:   { bg: "rgba(6,182,212,0.12)",  text: "text-cyan-400",   border: "rgba(6,182,212,0.4)"  },
-    purple: { bg: "rgba(124,58,237,0.12)", text: "text-purple-400", border: "rgba(124,58,237,0.4)" },
+  const accentMap = {
+    blue:   { bg: "bg-blue-50",   icon: "text-blue-600",   dot: "bg-blue-500"   },
+    cyan:   { bg: "bg-cyan-50",   icon: "text-cyan-600",   dot: "bg-cyan-500"   },
+    purple: { bg: "bg-violet-50", icon: "text-violet-600", dot: "bg-violet-500" },
   };
-  const a = accentColors[accent];
+  const a = accentMap[accent];
 
   return (
     <Link href={href}>
-      <div className="glass card-hover rounded-xl p-6 sm:p-7 h-full flex flex-col cursor-pointer group">
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-          style={{ background: a.bg }}
-        >
-          <Icon className={`w-5 h-5 ${a.text}`} />
+      <div className="bg-white border border-slate-200 card-hover rounded-xl p-6 sm:p-7 h-full flex flex-col cursor-pointer group">
+        <div className={`w-10 h-10 rounded-xl ${a.bg} flex items-center justify-center mb-5 flex-shrink-0`}>
+          <Icon className={`w-5 h-5 ${a.icon}`} />
         </div>
 
-        <h3 className="text-base font-semibold text-white mb-2 group-hover:text-blue-400 transition leading-snug">
+        <h3 className="text-base font-semibold text-slate-900 mb-2 group-hover:text-blue-600 transition leading-snug">
           {title}
         </h3>
 
-        <p className="text-sm text-slate-400 leading-relaxed mb-5 flex-grow">
+        <p className="text-sm text-slate-500 leading-relaxed mb-5 flex-grow">
           {description}
         </p>
 
@@ -47,16 +44,15 @@ export default function ServiceCard({
           <ul className="space-y-1.5 mb-5">
             {features.map((f, i) => (
               <li key={i} className="flex items-center gap-2 text-xs text-slate-500">
-                <span className={`w-1 h-1 rounded-full flex-shrink-0 ${a.text}`}
-                  style={{ background: "currentColor" }} />
+                <span className={`w-1 h-1 rounded-full flex-shrink-0 ${a.dot}`} />
                 {f}
               </li>
             ))}
           </ul>
         )}
 
-        <span className="text-xs font-semibold text-blue-400 group-hover:translate-x-1 transition inline-flex items-center gap-1">
-          Learn more <span>→</span>
+        <span className="text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition inline-flex items-center gap-1">
+          Learn more →
         </span>
       </div>
     </Link>
