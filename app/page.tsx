@@ -5,7 +5,7 @@ import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import {
   Brain, Shield, Globe, ArrowRight,
-  Cpu, Network, Lock, Zap, Database,
+  Cpu, Network, Lock, Zap, Database, Code2,
   MessageSquare, BarChart3, Search,
 } from "lucide-react";
 
