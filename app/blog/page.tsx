@@ -5,12 +5,12 @@ import { Clock, User } from "lucide-react";
 import { blogPostsList } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
-  title: "Blog | Western Gate Labs",
+  title: "Blog | Westerngate Labs",
   description:
     "Insights on AI, cybersecurity, and digital transformation for modern organizations.",
   keywords: ["AI blog", "cybersecurity articles", "technology insights"],
   openGraph: {
-    title: "Blog | Western Gate Labs",
+    title: "Blog | Westerngate Labs",
     description: "Practical insights on AI and security.",
   },
 };

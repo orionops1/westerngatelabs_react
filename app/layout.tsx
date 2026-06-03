@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://western-gate-labs.com"),
-  title: "Western Gate Labs | AI & Cybersecurity Solutions",
+  title: "Westerngate Labs | AI & Cybersecurity Solutions",
   description:
     "Transform operations, strengthen security, and accelerate growth through AI-powered innovation and cybersecurity expertise for modern businesses.",
   keywords: [
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     "security consulting",
     "AI automation",
   ],
-  authors: [{ name: "Western Gate Labs" }],
-  creator: "Western Gate Labs",
+  authors: [{ name: "Westerngate Labs" }],
+  creator: "Westerngate Labs",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://western-gate-labs.com",
-    siteName: "Western Gate Labs",
-    title: "Western Gate Labs | AI & Cybersecurity Solutions",
+    siteName: "Westerngate Labs",
+    title: "Westerngate Labs | AI & Cybersecurity Solutions",
     description:
       "Transform operations, strengthen security, and accelerate growth through intelligent technology solutions.",
     images: [
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
         url: "https://western-gate-labs.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Western Gate Labs",
+        alt: "Westerngate Labs",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Western Gate Labs | AI & Cybersecurity Solutions",
+    title: "Westerngate Labs | AI & Cybersecurity Solutions",
     description:
       "Transform operations, strengthen security, and accelerate growth through intelligent technology solutions.",
     images: ["https://western-gate-labs.com/og-image.png"],

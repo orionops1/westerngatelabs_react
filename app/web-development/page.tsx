@@ -4,12 +4,12 @@ import ServiceCard from "@/components/ServiceCard";
 import { Globe, ShoppingCart, Zap, Code, Palette, TrendingUp } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Web Development | Western Gate Labs",
+  title: "Web Development | Westerngate Labs",
   description:
     "Custom web applications, APIs, and digital platforms built with modern stacks and security-first architecture.",
   keywords: ["web development", "custom applications", "Next.js", "API development"],
   openGraph: {
-    title: "Web Development | Western Gate Labs",
+    title: "Web Development | Westerngate Labs",
     description: "Scalable web applications built the right way.",
   },
 };

@@ -84,7 +84,7 @@ export default function Navigation() {
               <span className="text-white font-black text-xs">WG</span>
             </div>
             <span className="text-sm font-bold text-slate-900 tracking-tight hidden sm:inline">
-              Western Gate Labs
+              Westerngate Labs
             </span>
           </Link>
 

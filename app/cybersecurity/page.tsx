@@ -3,12 +3,12 @@ import Button from "@/components/Button";
 import { Shield, Search, AlertTriangle, Lock, Eye, Users, CheckCircle2, ArrowRight, Target, FileSearch, Radar } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Cybersecurity | Western Gate Labs",
+  title: "Cybersecurity | Westerngate Labs",
   description:
     "Enterprise cybersecurity services: penetration testing, security assessments, incident response, and managed security.",
   keywords: ["cybersecurity", "penetration testing", "security assessment", "managed security"],
   openGraph: {
-    title: "Cybersecurity | Western Gate Labs",
+    title: "Cybersecurity | Westerngate Labs",
     description: "Proactive security for modern threats.",
   },
 };

@@ -3,11 +3,11 @@ import ContactForm from "@/components/ContactForm";
 import { Mail, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact | Western Gate Labs",
+  title: "Contact | Westerngate Labs",
   description:
-    "Get in touch with Western Gate Labs. Request a consultation for AI solutions or cybersecurity services.",
+    "Get in touch with Westerngate Labs. Request a consultation for AI solutions or cybersecurity services.",
   openGraph: {
-    title: "Contact | Western Gate Labs",
+    title: "Contact | Westerngate Labs",
     description: "Let's talk about what you're building or defending.",
   },
 };
@@ -41,17 +41,17 @@ const faqs = [
 
 export default function ContactPage() {
   return (
-    <div className="bg-navy-900">
+    <div className="bg-white">
 
       {/* Hero */}
-      <section className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-25" />
+      <section className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
+        <div className="absolute inset-0 dot-grid opacity-30" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">Contact</span>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight mb-4 max-w-2xl">
+          <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4">Contact</span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight tracking-tight mb-4 max-w-2xl">
             Let's talk about your project
           </h1>
-          <p className="text-slate-400 max-w-lg">
+          <p className="text-slate-600 max-w-lg">
             Fill in the form and we'll respond within one business day. Based in
             Sri Lanka — working with clients globally.
           </p>
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </section>
 
       {/* Content */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12">
 
           {/* Info */}
@@ -70,46 +70,46 @@ export default function ContactPage() {
               </p>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Email</p>
                     <a
                       href="mailto:hello@westerngatelabs.com"
-                      className="text-sm text-white hover:text-electric-blue transition"
+                      className="text-sm text-slate-900 hover:text-blue-600 transition"
                     >
                       hello@westerngatelabs.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Location</p>
-                    <p className="text-sm text-white">Sri Lanka</p>
+                    <p className="text-sm text-slate-900">Sri Lanka</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Phone</p>
-                    <a href="tel:+94776100099" className="text-sm text-white hover:text-electric-blue transition">
+                    <a href="tel:+94776100099" className="text-sm text-slate-900 hover:text-blue-600 transition">
                       +94 77 610 0099
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Clock className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <Clock className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Response time</p>
-                    <p className="text-sm text-white">Within 1 business day</p>
+                    <p className="text-sm text-slate-900">Within 1 business day</p>
                     <p className="text-xs text-slate-500 mt-0.5">Security incidents: 2 hours</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="glass rounded-xl p-6">
-              <p className="text-xs font-semibold text-electric-blue mb-3">
+            <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+              <p className="text-xs font-semibold text-blue-600 mb-3">
                 What to expect
               </p>
               <ul className="space-y-2.5">
@@ -119,8 +119,8 @@ export default function ContactPage() {
                   "Free scoping call if there's a fit",
                   "No commitment required",
                 ].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-xs text-slate-400">
-                    <span className="w-1 h-1 rounded-full bg-electric-blue flex-shrink-0" />
+                  <li key={item} className="flex items-center gap-2 text-xs text-slate-600">
+                    <span className="w-1 h-1 rounded-full bg-blue-600 flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -129,32 +129,32 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-3 glass rounded-xl p-8">
+          <div className="lg:col-span-3 bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
             <ContactForm />
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10">
-            <span className="tag mb-3 inline-block">FAQ</span>
-            <h2 className="text-2xl font-bold text-white">Common questions</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-3">FAQ</span>
+            <h2 className="text-2xl font-bold text-slate-900">Common questions</h2>
           </div>
           <div className="space-y-3">
             {faqs.map((item) => (
               <details
                 key={item.q}
-                className="group glass rounded-xl cursor-pointer"
+                className="group bg-white border border-slate-200 rounded-xl cursor-pointer hover:shadow-md transition"
               >
-                <summary className="flex justify-between items-center px-6 py-4 text-sm font-medium text-white list-none">
+                <summary className="flex justify-between items-center px-6 py-4 text-sm font-medium text-slate-900 list-none">
                   {item.q}
                   <span className="text-slate-500 group-open:rotate-180 transition ml-4 flex-shrink-0 text-xs">
                     ▾
                   </span>
                 </summary>
-                <p className="px-6 pb-5 text-xs text-slate-400 leading-relaxed border-t border-white/[0.05] pt-4">
+                <p className="px-6 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
                   {item.a}
                 </p>
               </details>

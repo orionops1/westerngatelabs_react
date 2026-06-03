@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import Button from "@/components/Button";
 
 export const metadata: Metadata = {
-  title: "About | Western Gate Labs",
+  title: "About | Westerngate Labs",
   description:
     "We're a team of engineers, security researchers, and AI practitioners building serious technology for forward-thinking organizations.",
   openGraph: {
-    title: "About | Western Gate Labs",
+    title: "About | Westerngate Labs",
     description: "Our mission: help organizations build and defend their digital future.",
   },
 };
@@ -31,10 +31,10 @@ const values = [
 ];
 
 const stats = [
-  { value: "2021", label: "Founded in Sri Lanka" },
-  { value: "50+", label: "Projects Completed" },
-  { value: "10+", label: "Team Members" },
-  { value: "5+", label: "Countries Served" },
+  { value: "2024", label: "Founded" },
+  { value: "AI-First", label: "Approach" },
+  { value: "Growing", label: "Team" },
+  { value: "Global", label: "Reach" },
 ];
 
 export default function AboutPage() {
@@ -50,9 +50,8 @@ export default function AboutPage() {
             We work at the intersection of AI and security
           </h1>
           <p className="text-lg text-slate-600 max-w-xl">
-            Western Gate Labs is an AI-first technology company based in Sri Lanka. 
-            We help organizations build intelligent systems and defend them — because 
-            the two problems are inseparable.
+            Westerngate Labs is an AI-first technology startup based in Sri Lanka, 
+            focused on building intelligent systems and cybersecurity solutions for modern businesses.
           </p>
         </div>
       </section>
@@ -67,22 +66,20 @@ export default function AboutPage() {
                 Built by practitioners, not generalists
               </h2>
               <p className="text-slate-600 text-sm leading-relaxed">
-                We started Western Gate Labs in Sri Lanka because we kept seeing 
-                the same problem: organizations were adopting AI without thinking about 
-                what that meant for their security footprint, and their security teams 
-                weren't equipped to reason about AI-specific risks.
+                We founded Westerngate Labs as an AI-first startup to help organizations 
+                adopt artificial intelligence safely and effectively. We combine cutting-edge 
+                AI technology with robust security practices to deliver solutions that create 
+                real business value.
               </p>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Our founding team came from offensive security research and ML
-                engineering. We built a firm where those disciplines work together.
-                Every AI system we design is threat-modeled. Every security engagement
-                considers AI risk vectors. The result is advice grounded in how these
-                systems actually fail in the real world.
+                As a startup, we're agile, innovative, and focused on emerging AI technologies. 
+                We leverage modern cloud platforms and AI frameworks to build scalable solutions 
+                quickly, helping our clients stay ahead in the rapidly evolving AI landscape.
               </p>
               <p className="text-slate-600 text-sm leading-relaxed">
-                We leverage modern cloud infrastructure and AI platforms to give clients
-                enterprise-grade capabilities without the overhead of managing their own
-                ML infrastructure — allowing faster time-to-production and better scalability.
+                Our team brings expertise in machine learning, natural language processing, 
+                computer vision, and cybersecurity. We're committed to making AI accessible 
+                and practical for businesses of all sizes.
               </p>
             </div>
             <div className="lg:col-span-2">

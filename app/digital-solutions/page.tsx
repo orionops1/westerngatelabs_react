@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import { Globe, Code, Smartphone, ShoppingCart, Zap, ArrowRight, CheckCircle2, Palette, Search, BarChart3 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Digital Solutions | Western Gate Labs",
+  title: "Digital Solutions | Westerngate Labs",
   description:
     "Business websites, WordPress development, Next.js development, landing pages, and e-commerce solutions built for growth and performance.",
   keywords: [
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "e-commerce websites", "business websites", "landing pages", "custom web applications",
   ],
   openGraph: {
-    title: "Digital Solutions | Western Gate Labs",
+    title: "Digital Solutions | Westerngate Labs",
     description: "Business websites, customer portals, SaaS products, and custom web applications built for growth.",
   },
 };

@@ -3,15 +3,15 @@ import Button from "@/components/Button";
 import { Brain, MessageSquare, Sparkles, Zap, Cpu, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "AI Solutions | Western Gate Labs",
+  title: "AI Solutions | Westerngate Labs",
   description:
-    "AI Website Chatbots, Knowledge Assistants, Content Generation, Business Automation, and Custom AI Solutions — by Western Gate Labs, Sri Lanka.",
+    "AI Website Chatbots, Knowledge Assistants, Content Generation, Business Automation, and Custom AI Solutions — by Westerngate Labs, Sri Lanka.",
   keywords: [
     "AI chatbot Sri Lanka", "AI solutions", "AI business automation",
     "AI knowledge assistant", "AI content generation", "custom AI development",
   ],
   openGraph: {
-    title: "AI Solutions | Western Gate Labs",
+    title: "AI Solutions | Westerngate Labs",
     description: "Custom AI systems, chatbots, and automation platforms that improve business efficiency.",
   },
 };

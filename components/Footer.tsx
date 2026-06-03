@@ -51,7 +51,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center flex-shrink-0">
                 <span className="text-white font-black text-xs">WG</span>
               </div>
-              <span className="font-bold text-sm text-white">Western Gate Labs</span>
+              <span className="font-bold text-sm text-white">Westerngate Labs</span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-5">
               AI solutions, cybersecurity, and digital platforms for forward-thinking organizations.
@@ -123,7 +123,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-500">
-            © {year} Western Gate Labs (Pvt) Ltd. All rights reserved.
+            © {year} Westerngate Labs (Pvt) Ltd. All rights reserved.
           </p>
           <div className="flex gap-5 flex-wrap justify-center">
             {legalLinks.map((l) => (

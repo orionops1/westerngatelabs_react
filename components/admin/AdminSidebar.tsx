@@ -31,7 +31,7 @@ export default function AdminSidebar() {
             <span className="text-white font-black text-xs">WG</span>
           </div>
           <div>
-            <p className="text-xs font-semibold text-white">Western Gate Labs</p>
+            <p className="text-xs font-semibold text-white">Westerngate Labs</p>
             <p className="text-xs text-slate-600">CMS</p>
           </div>
         </div>

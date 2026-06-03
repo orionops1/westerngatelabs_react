@@ -105,7 +105,7 @@ export default function AdminLoginPage() {
             <Lock className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-white mb-1">Admin Login</h1>
-          <p className="text-sm text-slate-500">Western Gate Labs CMS</p>
+          <p className="text-sm text-slate-500">Westerngate Labs CMS</p>
         </div>
 
         <div className="glass rounded-2xl p-8">

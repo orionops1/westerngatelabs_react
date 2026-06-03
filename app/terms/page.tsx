@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Western Gate Labs",
-  description: "Western Gate Labs terms of service — the legal agreement governing use of our services.",
+  title: "Terms of Service | Westerngate Labs",
+  description: "Westerngate Labs terms of service — the legal agreement governing use of our services.",
 };
 
 export default function TermsPage() {
@@ -32,16 +32,16 @@ export default function TermsPage() {
           <div className="glass p-8 rounded-xl space-y-4">
             <h2 className="text-2xl font-bold text-white">2. Services</h2>
             <p>
-              Western Gate Labs provides AI consulting, cybersecurity, and web development services.
+              Westerngate Labs provides AI consulting, cybersecurity, and web development services.
               The specific terms of any engagement are governed by a separate Statement of Work or
-              Service Agreement executed between Western Gate Labs and the client.
+              Service Agreement executed between Westerngate Labs and the client.
             </p>
           </div>
 
           <div className="glass p-8 rounded-xl space-y-4">
             <h2 className="text-2xl font-bold text-white">3. Intellectual Property</h2>
             <p>
-              The content, features, and functionality of this website are owned by Western Gate Labs
+              The content, features, and functionality of this website are owned by Westerngate Labs
               and are protected by international copyright, trademark, and other intellectual property laws.
               Work product developed for clients is governed by the applicable client agreement.
             </p>
@@ -50,7 +50,7 @@ export default function TermsPage() {
           <div className="glass p-8 rounded-xl space-y-4">
             <h2 className="text-2xl font-bold text-white">4. Limitation of Liability</h2>
             <p>
-              Western Gate Labs shall not be liable for any indirect, incidental, special, consequential,
+              Westerngate Labs shall not be liable for any indirect, incidental, special, consequential,
               or punitive damages resulting from your use or inability to use our services. Our total
               liability is limited to the amount paid for the specific service giving rise to the claim.
             </p>

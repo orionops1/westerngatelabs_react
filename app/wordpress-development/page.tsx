@@ -4,7 +4,7 @@ import ServiceCard from "@/components/ServiceCard";
 import { Code2, ShoppingCart, Zap, Puzzle, Globe, Wrench } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "WordPress Development | Western Gate Labs",
+  title: "WordPress Development | Westerngate Labs",
   description:
     "Expert WordPress development in Sri Lanka — custom themes, plugin development, WooCommerce, performance optimization, and enterprise WordPress solutions.",
   keywords: [
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "WordPress theme development", "WordPress expert", "WordPress agency",
   ],
   openGraph: {
-    title: "WordPress Development | Western Gate Labs",
+    title: "WordPress Development | Westerngate Labs",
     description: "Custom WordPress themes, plugins, and WooCommerce solutions.",
   },
 };

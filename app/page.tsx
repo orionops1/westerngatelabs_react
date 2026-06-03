@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Western Gate Labs | AI Solutions, Cybersecurity & Digital Transformation",
+  title: "Westerngate Labs | AI Solutions, Cybersecurity & Digital Transformation",
   description:
     "Leading technology company in Sri Lanka specializing in AI solutions, cybersecurity services, and enterprise digital platforms. Trusted by businesses across industries.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "WordPress development", "AI consulting", "IT services Sri Lanka",
   ],
   openGraph: {
-    title: "Western Gate Labs | AI Solutions, Cybersecurity & Digital Transformation",
+    title: "Westerngate Labs | AI Solutions, Cybersecurity & Digital Transformation",
     description: "Transform your business with AI-powered solutions and enterprise-grade security.",
     type: "website",
   },
@@ -132,7 +132,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Western Gate Labs delivers enterprise-grade AI solutions, cybersecurity services, 
+                Westerngate Labs delivers enterprise-grade AI solutions, cybersecurity services, 
                 and digital platforms. Based in Sri Lanka, we help businesses leverage 
                 technology for growth and competitive advantage.
               </p>
@@ -365,7 +365,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <TestimonialCard
-              quote="Western Gate Labs delivered a robust security assessment that identified critical vulnerabilities we weren't aware of. Their expertise and professionalism are outstanding."
+              quote="Westerngate Labs delivered a robust security assessment that identified critical vulnerabilities we weren't aware of. Their expertise and professionalism are outstanding."
               author="Sarah Chen"
               title="CTO"
               company="TechCorp International"

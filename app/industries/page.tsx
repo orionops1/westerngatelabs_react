@@ -3,11 +3,11 @@ import Button from "@/components/Button";
 import { Activity, DollarSign, ShoppingCart, BookOpen, Factory, Cpu } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Industries | Western Gate Labs",
+  title: "Industries | Westerngate Labs",
   description:
     "AI and cybersecurity solutions tailored for healthcare, finance, retail, education, manufacturing, and technology.",
   openGraph: {
-    title: "Industries | Western Gate Labs",
+    title: "Industries | Westerngate Labs",
     description: "Specialized expertise across high-stakes industries.",
   },
 };

@@ -17,13 +17,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = blogPosts[slug];
 
   if (!post) {
-    return { title: "Post Not Found | Western Gate Labs" };
+    return { title: "Post Not Found | Westerngate Labs" };
   }
 
   return {
-    title: `${post.title} | Western Gate Labs`,
+    title: `${post.title} | Westerngate Labs`,
     description: post.excerpt,
-    keywords: [post.category, "Western Gate Labs"],
+    keywords: [post.category, "Westerngate Labs"],
     openGraph: {
       title: post.title,
       description: post.excerpt,
