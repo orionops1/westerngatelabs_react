@@ -1,146 +1,220 @@
 import { Metadata } from "next";
 import Button from "@/components/Button";
-import ServiceCard from "@/components/ServiceCard";
-import { Brain, Zap, Target, TrendingUp, Code, Cpu } from "lucide-react";
+import { Brain, MessageSquare, Sparkles, Zap, Cpu, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AI Solutions | Western Gate Labs",
   description:
-    "Enterprise AI consulting, machine learning, automation, and generative AI implementation services.",
-  keywords: ["AI consulting", "machine learning", "AI automation", "generative AI"],
+    "AI Website Chatbots, Knowledge Assistants, Content Generation, Business Automation, and Custom AI Solutions built on Google Cloud — by Western Gate Labs, Sri Lanka.",
+  keywords: [
+    "AI chatbot Sri Lanka", "AI solutions", "AI business automation",
+    "AI knowledge assistant", "AI content generation", "custom AI development",
+    "Google Cloud AI", "Vertex AI", "Gemini API",
+  ],
   openGraph: {
     title: "AI Solutions | Western Gate Labs",
-    description: "From strategy to production — AI solutions that deliver measurable results.",
+    description: "Custom AI systems, chatbots, and automation platforms that improve business efficiency.",
   },
 };
 
-const aiServices = [
+const services = [
   {
+    id: "chatbots",
+    icon: MessageSquare,
+    title: "AI Website Chatbots",
+    accent: "text-blue-400",
+    bg: "bg-blue-500/10",
+    border: "border-blue-500/20",
+    desc: "Deploy intelligent, conversational AI assistants on your website that answer customer questions 24/7, qualify leads, book appointments, and handle support — without human intervention.",
+    capabilities: [
+      "Natural language understanding",
+      "Live handoff to human agents",
+      "CRM & helpdesk integration",
+      "Multi-language support",
+      "Custom personality & tone",
+      "Analytics dashboard",
+    ],
+    built: "Built with Gemini API · Dialogflow CX · Vertex AI",
+  },
+  {
+    id: "assistants",
     icon: Brain,
-    title: "AI Strategy & Consulting",
-    description: "We assess your operations, identify high-impact AI opportunities, and build a roadmap that fits your timeline and budget.",
-    href: "/ai-solutions",
-    features: ["Opportunity assessment", "Technology selection", "ROI modeling"],
+    title: "AI Knowledge Assistants",
+    accent: "text-violet-400",
+    bg: "bg-violet-500/10",
+    border: "border-violet-500/20",
+    desc: "Internal AI assistants that understand your company's documents, SOPs, product catalogs, and knowledge base — enabling your team to find answers instantly instead of searching for hours.",
+    capabilities: [
+      "RAG (retrieval-augmented generation)",
+      "PDF, Word, web source ingestion",
+      "Role-based access control",
+      "Semantic search",
+      "Slack / Teams integration",
+      "Audit logs",
+    ],
+    built: "Built with Vertex AI Search · Gemini · Cloud Storage",
   },
   {
+    id: "content",
+    icon: Sparkles,
+    title: "AI Content Generation",
+    accent: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+    border: "border-cyan-500/20",
+    desc: "Automate the creation of marketing copy, product descriptions, blog articles, social media posts, and email campaigns — in your brand voice, at scale.",
+    capabilities: [
+      "Brand voice fine-tuning",
+      "Bulk content generation",
+      "SEO-optimized output",
+      "Multi-format export",
+      "Human review workflow",
+      "CMS publishing integration",
+    ],
+    built: "Built with Gemini API · Vertex AI · Cloud Workflows",
+  },
+  {
+    id: "automation",
     icon: Zap,
-    title: "Process Automation",
-    description: "Replace manual, repetitive workflows with intelligent automation — from document processing to multi-step approval chains.",
-    href: "/ai-solutions",
-    features: ["RPA & intelligent agents", "Workflow orchestration", "Integration with existing systems"],
+    title: "AI Business Automation",
+    accent: "text-amber-400",
+    bg: "bg-amber-500/10",
+    border: "border-amber-500/20",
+    desc: "Replace manual, repetitive business processes with intelligent automation — from document processing and data entry to invoice handling, email triage, and multi-step approval workflows.",
+    capabilities: [
+      "Document intelligence (OCR + AI)",
+      "Email classification & routing",
+      "Invoice & form processing",
+      "Multi-step workflow orchestration",
+      "Exception handling with human fallback",
+      "Process analytics",
+    ],
+    built: "Built with Document AI · Cloud Workflows · Pub/Sub",
   },
   {
-    icon: Target,
-    title: "Conversational AI",
-    description: "Deploy LLM-powered assistants for customer support, internal knowledge retrieval, and complex Q&A at scale.",
-    href: "/ai-solutions",
-    features: ["RAG architectures", "Custom fine-tuning", "Multi-language support"],
-  },
-  {
-    icon: Code,
-    title: "Machine Learning",
-    description: "Build, train, and deploy production-grade models for classification, forecasting, anomaly detection, and recommendation.",
-    href: "/ai-solutions",
-    features: ["Custom model development", "Data pipeline engineering", "MLOps & monitoring"],
-  },
-  {
+    id: "custom",
     icon: Cpu,
-    title: "Generative AI Integration",
-    description: "Embed GPT-4, Claude, Gemini, and open-source models into your products and internal tools — with proper guardrails.",
-    href: "/ai-solutions",
-    features: ["API integration & orchestration", "Prompt engineering", "Safety & compliance controls"],
+    title: "Custom AI Solutions",
+    accent: "text-green-400",
+    bg: "bg-green-500/10",
+    border: "border-green-500/20",
+    desc: "Bespoke AI systems designed around your specific business problem — predictive models, recommendation engines, computer vision, anomaly detection, or any AI capability your operation requires.",
+    capabilities: [
+      "ML model development & training",
+      "Predictive analytics",
+      "Recommendation engines",
+      "Computer vision systems",
+      "Anomaly & fraud detection",
+      "MLOps & model monitoring",
+    ],
+    built: "Built with Vertex AI · BigQuery ML · Cloud Run",
   },
-  {
-    icon: TrendingUp,
-    title: "AI Enablement",
-    description: "Train your team to work alongside AI effectively. Workshops, playbooks, and ongoing advisory for AI-native organizations.",
-    href: "/ai-solutions",
-    features: ["Team training & workshops", "AI governance frameworks", "Ongoing advisory"],
-  },
+];
+
+const outcomes = [
+  { value: "40–60%",   label: "Reduction in manual workload"     },
+  { value: "3–5×",     label: "Faster information retrieval"     },
+  { value: "24/7",     label: "Automated customer coverage"      },
+  { value: "< 90 days",label: "Average time to production"       },
 ];
 
 export default function AISolutionsPage() {
   return (
-    <div className="bg-navy-900">
+    <div className="bg-[#03050f]">
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-30" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-electric-blue/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="hero-glow w-[500px] h-[500px] bg-blue-600/8 -top-20 right-0" />
         <div className="relative z-10 max-w-7xl mx-auto">
           <span className="tag mb-4 inline-block">AI Solutions</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
-            AI that works in the real world
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+            AI that works in<br className="hidden sm:block" />
+            <span className="gradient-text">the real world</span>
           </h1>
-          <p className="text-lg text-slate-400 max-w-xl mb-8">
-            We don't do proofs-of-concept that never ship. We take you from problem
-            definition to production — and stay accountable for results.
+          <p className="text-base sm:text-lg text-slate-400 max-w-xl mb-8 leading-relaxed">
+            Custom AI systems, chatbots, automation platforms, and intelligent
+            assistants designed to improve business efficiency — built on Google
+            Cloud's AI infrastructure.
           </p>
-          <Button href="/contact" size="lg">
-            Talk to our AI team
-          </Button>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12">
-            <span className="tag mb-3 inline-block">Capabilities</span>
-            <h2 className="text-2xl font-bold text-white">What we build</h2>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiServices.map((service, idx) => (
-              <ServiceCard key={idx} {...service} />
-            ))}
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Button href="/contact" size="lg">
+              Talk to our AI team <ArrowRight className="w-4 h-4" />
+            </Button>
+            <Button href="#chatbots" variant="secondary" size="lg">
+              Explore services
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Impact */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-12">
-            <span className="tag mb-3 inline-block">Outcomes</span>
-            <h2 className="text-2xl font-bold text-white">What clients report</h2>
-          </div>
+      {/* Outcomes */}
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {outcomes.map((o) => (
+            <div key={o.label} className="text-center">
+              <p className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">{o.value}</p>
+              <p className="text-xs text-slate-500">{o.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { value: "40–60%", label: "Reduction in operational costs" },
-              { value: "3–5×", label: "Faster processing times" },
-              { value: "87%", label: "Fraud detection improvement" },
-              { value: "< 90 days", label: "Average time to production" },
-            ].map((stat) => (
-              <div key={stat.label} className="glass rounded-xl p-6">
-                <p className="text-3xl font-bold text-electric-blue mb-1">{stat.value}</p>
-                <p className="text-sm text-slate-400">{stat.label}</p>
+      {/* Services — each with anchor id */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto space-y-6">
+          {services.map((svc) => {
+            const Icon = svc.icon;
+            return (
+              <div
+                key={svc.id}
+                id={svc.id}
+                className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20`}
+              >
+                <div className="flex flex-col sm:flex-row gap-6">
+                  <div className={`w-12 h-12 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-6 h-6 ${svc.accent}`} />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-lg sm:text-xl font-bold text-white mb-3">{svc.title}</h2>
+                    <p className="text-sm text-slate-400 leading-relaxed mb-5">{svc.desc}</p>
+                    <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-5">
+                      {svc.capabilities.map((cap) => (
+                        <div key={cap} className="flex items-center gap-2 text-xs text-slate-400">
+                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${svc.accent}`}
+                            style={{ background: "currentColor" }} />
+                          {cap}
+                        </div>
+                      ))}
+                    </div>
+                    <p className={`text-xs font-mono ${svc.accent} opacity-60`}>{svc.built}</p>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </section>
 
       {/* Process */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-3xl mx-auto">
-          <div className="mb-12">
+          <div className="mb-10">
             <span className="tag mb-3 inline-block">Process</span>
-            <h2 className="text-2xl font-bold text-white">How we deliver AI projects</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">How we deliver AI projects</h2>
           </div>
-          <div className="space-y-0 glass rounded-2xl overflow-hidden">
+          <div className="glass rounded-2xl overflow-hidden">
             {[
-              { phase: "Discovery", desc: "Understand your data, goals, and infrastructure constraints." },
-              { phase: "Strategy", desc: "Define the use case, select the right models, and scope a pilot." },
+              { phase: "Discovery",        desc: "Understand your data, goals, and infrastructure constraints." },
+              { phase: "Strategy",         desc: "Define the use case, select the right models, and scope a pilot." },
               { phase: "Proof of Concept", desc: "Build a working prototype with real data and validate assumptions." },
               { phase: "Production Build", desc: "Engineer a robust, monitored system ready for real workloads." },
-              { phase: "Optimization", desc: "Track model performance and improve based on production feedback." },
+              { phase: "Optimization",     desc: "Track model performance and improve based on production feedback." },
             ].map((item, idx, arr) => (
               <div
                 key={item.phase}
-                className={`flex gap-6 p-6 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                className={`flex gap-5 p-5 sm:p-6 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
               >
-                <span className="text-xs font-mono text-electric-blue/50 w-5 flex-shrink-0 mt-0.5">
+                <span className="text-xs font-mono text-blue-500/40 w-5 flex-shrink-0 mt-0.5">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -154,13 +228,13 @@ export default function AISolutionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready to explore AI for your business?
           </h2>
           <p className="text-slate-400 mb-8 text-sm">
-            We'll start with a free scoping call — no commitment, no pitch deck.
+            We&apos;ll start with a free scoping call — no commitment, no pitch deck.
           </p>
           <Button href="/contact" size="lg">
             Schedule AI consultation

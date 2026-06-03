@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import {
-  Brain, Shield, Globe, Code2, ArrowRight,
+  Brain, Shield, Globe, ArrowRight,
   Cpu, Network, Lock, Zap, Database,
   MessageSquare, BarChart3, Search,
 } from "lucide-react";
@@ -109,41 +109,33 @@ export default function Home() {
           <div className="mb-12 sm:mb-14">
             <span className="tag mb-3 inline-block">What we do</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              End-to-end technology expertise
+              Three practices. One integrated team.
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             <ServiceCard
               icon={Brain}
               accent="blue"
               title="AI Solutions"
-              description="Strategy through production — AI automation, ML models, and GenAI systems built on Google Cloud."
+              description="Custom AI systems, chatbots, automation platforms, and intelligent assistants designed to improve business efficiency."
               href="/ai-solutions"
-              features={["Vertex AI & Gemini", "ML model development", "Process automation", "AI strategy"]}
+              features={["AI Website Chatbots", "AI Knowledge Assistants", "AI Content Generation", "AI Business Automation", "Custom AI Solutions"]}
             />
             <ServiceCard
               icon={Shield}
               accent="purple"
               title="Cybersecurity"
-              description="Proactive security: penetration testing, threat detection, compliance, and managed SOC."
+              description="Protect your business through assessments, consulting, and security-focused technology strategies."
               href="/cybersecurity"
-              features={["Penetration testing", "Threat detection", "SOC 2 / HIPAA / GDPR", "Incident response"]}
+              features={["Security Assessments", "Vulnerability Assessments", "Security Consulting", "Website Security Audits"]}
             />
             <ServiceCard
               icon={Globe}
               accent="cyan"
-              title="Web Development"
-              description="Scalable web applications, APIs, and e-commerce platforms built with modern stacks."
-              href="/web-development"
-              features={["Next.js & React", "Custom applications", "API development", "Cloud deployment"]}
-            />
-            <ServiceCard
-              icon={Code2}
-              accent="blue"
-              title="WordPress"
-              description="Expert WordPress development — custom themes, plugins, and WooCommerce solutions."
-              href="/wordpress-development"
-              features={["Custom themes & plugins", "WooCommerce", "Performance optimization", "Migrations"]}
+              title="Digital Platforms"
+              description="Business websites, customer portals, SaaS products, and custom web applications built for growth."
+              href="/digital-solutions"
+              features={["Business Websites", "WordPress Development", "Next.js Development", "Landing Pages", "E-Commerce Websites"]}
             />
           </div>
         </div>
