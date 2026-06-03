@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: [
     "AI startup Sri Lanka", "AI solutions", "cybersecurity Sri Lanka",
     "machine learning", "web development", "digital transformation",
-    "WordPress development", "AI consulting", "IT services Malabe",
+    "WordPress development", "AI consulting", "IT services Sri Lanka",
   ],
   openGraph: {
     title: "Western Gate Labs | AI Solutions, Cybersecurity & Digital Transformation",
@@ -133,7 +133,7 @@ export default function Home() {
 
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 Western Gate Labs delivers enterprise-grade AI solutions, cybersecurity services, 
-                and digital platforms. Based in Malabe, Sri Lanka, we help businesses leverage 
+                and digital platforms. Based in Sri Lanka, we help businesses leverage 
                 technology for growth and competitive advantage.
               </p>
 
@@ -447,7 +447,7 @@ export default function Home() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-blue-100 text-sm mb-2">Based in Malabe, Sri Lanka</p>
+            <p className="text-blue-100 text-sm mb-2">Based in Sri Lanka</p>
             <p className="text-blue-200 text-sm">Serving clients locally and internationally</p>
           </div>
         </div>

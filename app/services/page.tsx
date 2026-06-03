@@ -6,7 +6,7 @@ import { Brain, Shield, Globe } from "lucide-react";
 export const metadata: Metadata = {
   title: "Services | Western Gate Labs",
   description:
-    "AI solutions, cybersecurity, and digital platforms for modern organizations based in Malabe, Sri Lanka.",
+    "AI solutions, cybersecurity, and digital platforms for modern organizations based in Sri Lanka.",
   openGraph: {
     title: "Services | Western Gate Labs",
     description: "Three core practices. One integrated team.",

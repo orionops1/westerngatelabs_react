@@ -114,7 +114,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-slate-400">
                 <MapPin className="w-3.5 h-3.5 text-blue-400 flex-shrink-0 mt-0.5" />
-                Malabe, Sri Lanka
+                Sri Lanka
               </li>
             </ul>
           </div>

@@ -53,7 +53,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-slate-400 max-w-lg">
             Fill in the form and we'll respond within one business day. Based in
-            Malabe, Sri Lanka — working with clients globally.
+            Sri Lanka — working with clients globally.
           </p>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   <MapPin className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Location</p>
-                    <p className="text-sm text-white">Malabe, Sri Lanka</p>
+                    <p className="text-sm text-white">Sri Lanka</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

@@ -50,9 +50,9 @@ export default function AboutPage() {
             We work at the intersection of AI and security
           </h1>
           <p className="text-lg text-slate-400 max-w-xl">
-            Western Gate Labs is an AI-first technology company based in Malabe,
-            Sri Lanka. We help organizations build intelligent systems
-            and defend them — because the two problems are inseparable.
+            Western Gate Labs is an AI-first technology company based in Sri Lanka. 
+            We help organizations build intelligent systems and defend them — because 
+            the two problems are inseparable.
           </p>
         </div>
       </section>
@@ -67,10 +67,10 @@ export default function AboutPage() {
                 Built by practitioners, not generalists
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed">
-                We started Western Gate Labs in Malabe, Sri Lanka because we kept
-                seeing the same problem: organizations were adopting AI without
-                thinking about what that meant for their security footprint, and their
-                security teams weren't equipped to reason about AI-specific risks.
+                We started Western Gate Labs in Sri Lanka because we kept seeing 
+                the same problem: organizations were adopting AI without thinking about 
+                what that meant for their security footprint, and their security teams 
+                weren't equipped to reason about AI-specific risks.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Our founding team came from offensive security research and ML
