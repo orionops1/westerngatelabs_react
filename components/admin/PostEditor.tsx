@@ -5,23 +5,28 @@ import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import { Save, Eye } from "lucide-react";
 
+interface Post {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  image: string;
+  published: boolean;
+}
+
 interface PostEditorProps {
-  post?: {
-    id: string;
-    title: string;
-    slug: string;
-    excerpt: string;
-    content: string;
-    category: string;
-    image: string;
-    published: boolean;
-  };
+  post?: Post;
 }
 
 const categories = ["AI", "Cybersecurity", "Web Development", "WordPress", "Trends", "Company"];
 
+const inputClass =
+  "w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600";
+
 export default function PostEditor({ post }: PostEditorProps) {
-  const router = useRouter();
+  const router  = useRouter();
   const isEdit  = !!post;
 
   const [title,     setTitle]     = useState(post?.title     ?? "");
@@ -42,15 +47,11 @@ export default function PostEditor({ post }: PostEditorProps) {
     if (!isEdit) setSlug(generateSlug(val));
   };
 
-  const handleSubmit = async (e: FormEvent, publishNow?: boolean) => {
-    e.preventDefault();
+  const save = async (publishNow: boolean) => {
     setError("");
     setLoading(true);
 
-    const body = {
-      title, slug, excerpt, content, category, image,
-      published: publishNow ?? published,
-    };
+    const body = { title, slug, excerpt, content, category, image, published: publishNow };
 
     try {
       const url = isEdit ? `/api/admin/posts/${post!.id}` : "/api/admin/posts";
@@ -61,7 +62,7 @@ export default function PostEditor({ post }: PostEditorProps) {
       });
 
       if (!res.ok) {
-        const data = await res.json();
+        const data: { error?: string } = await res.json();
         throw new Error(data.error ?? "Save failed");
       }
 
@@ -71,6 +72,16 @@ export default function PostEditor({ post }: PostEditorProps) {
       setError(err instanceof Error ? err.message : "Save failed");
       setLoading(false);
     }
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    void save(published);
+  };
+
+  const handlePublish = () => {
+    setPublished(true);
+    void save(true);
   };
 
   return (
@@ -89,7 +100,7 @@ export default function PostEditor({ post }: PostEditorProps) {
           value={title}
           onChange={(e) => handleTitleChange(e.target.value)}
           required
-          className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600 text-base font-medium"
+          className={`${inputClass} text-base font-medium`}
           placeholder="Post title"
         />
       </div>
@@ -104,7 +115,7 @@ export default function PostEditor({ post }: PostEditorProps) {
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
             required
-            className="flex-1 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600 text-sm"
+            className={`${inputClass} flex-1 text-sm`}
             placeholder="post-slug"
           />
         </div>
@@ -117,7 +128,7 @@ export default function PostEditor({ post }: PostEditorProps) {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white"
+            className={inputClass}
           >
             {categories.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
@@ -128,7 +139,7 @@ export default function PostEditor({ post }: PostEditorProps) {
             type="text"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600"
+            className={inputClass}
             placeholder="🤖"
           />
         </div>
@@ -142,8 +153,8 @@ export default function PostEditor({ post }: PostEditorProps) {
           onChange={(e) => setExcerpt(e.target.value)}
           required
           rows={2}
-          className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600 resize-none text-sm"
-          placeholder="Short description shown on the blog listing page..."
+          className={`${inputClass} resize-none text-sm`}
+          placeholder="Short description shown on the blog listing..."
         />
       </div>
 
@@ -155,7 +166,7 @@ export default function PostEditor({ post }: PostEditorProps) {
           onChange={(e) => setContent(e.target.value)}
           required
           rows={18}
-          className="w-full px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-600 resize-y text-sm leading-relaxed font-mono"
+          className={`${inputClass} resize-y text-sm leading-relaxed font-mono`}
           placeholder="Write your post content here..."
         />
         <p className="text-xs text-slate-600 mt-1">Plain text. Use blank lines to separate paragraphs.</p>
@@ -163,24 +174,19 @@ export default function PostEditor({ post }: PostEditorProps) {
 
       {/* Status + actions */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-2">
-        <label className="flex items-center gap-3 cursor-pointer">
-          <div
-            onClick={() => setPublished(!published)}
-            className={`relative w-10 h-5 rounded-full transition ${published ? "bg-blue-600" : "bg-white/10"}`}
-          >
+        <button
+          type="button"
+          onClick={() => setPublished(!published)}
+          className="flex items-center gap-3 cursor-pointer"
+        >
+          <div className={`relative w-10 h-5 rounded-full transition ${published ? "bg-blue-600" : "bg-white/10"}`}>
             <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${published ? "translate-x-5" : "translate-x-0.5"}`} />
           </div>
           <span className="text-sm text-slate-400">{published ? "Published" : "Draft"}</span>
-        </label>
+        </button>
 
         <div className="flex gap-3">
-          <Button
-            type="submit"
-            variant="secondary"
-            size="md"
-            disabled={loading}
-            onClick={(e) => { (e as unknown as MouseEvent); }}
-          >
+          <Button type="submit" variant="secondary" size="md" disabled={loading}>
             <Save className="w-4 h-4" />
             {published ? "Save" : "Save draft"}
           </Button>
@@ -190,7 +196,7 @@ export default function PostEditor({ post }: PostEditorProps) {
               variant="primary"
               size="md"
               disabled={loading}
-              onClick={(e) => handleSubmit(e as unknown as FormEvent, true)}
+              onClick={handlePublish}
             >
               <Eye className="w-4 h-4" />
               Publish
