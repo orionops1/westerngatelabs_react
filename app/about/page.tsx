@@ -39,17 +39,17 @@ const stats = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-navy-900">
+    <div className="bg-white">
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 dot-grid opacity-25" />
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
+        <div className="absolute inset-0 dot-grid opacity-30" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">About Us</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+          <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4">About Us</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight mb-5 max-w-3xl">
             We work at the intersection of AI and security
           </h1>
-          <p className="text-lg text-slate-400 max-w-xl">
+          <p className="text-lg text-slate-600 max-w-xl">
             Western Gate Labs is an AI-first technology company based in Sri Lanka. 
             We help organizations build intelligent systems and defend them — because 
             the two problems are inseparable.
@@ -58,42 +58,42 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-14 items-start">
             <div className="lg:col-span-3 space-y-5">
-              <span className="tag inline-block">Our story</span>
-              <h2 className="text-2xl font-bold text-white">
+              <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold">Our story</span>
+              <h2 className="text-2xl font-bold text-slate-900">
                 Built by practitioners, not generalists
               </h2>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 We started Western Gate Labs in Sri Lanka because we kept seeing 
                 the same problem: organizations were adopting AI without thinking about 
                 what that meant for their security footprint, and their security teams 
                 weren't equipped to reason about AI-specific risks.
               </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 Our founding team came from offensive security research and ML
                 engineering. We built a firm where those disciplines work together.
                 Every AI system we design is threat-modeled. Every security engagement
                 considers AI risk vectors. The result is advice grounded in how these
                 systems actually fail in the real world.
               </p>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 We leverage modern cloud infrastructure and AI platforms to give clients
                 enterprise-grade capabilities without the overhead of managing their own
                 ML infrastructure — allowing faster time-to-production and better scalability.
               </p>
             </div>
             <div className="lg:col-span-2">
-              <div className="glass rounded-2xl p-7 space-y-0">
+              <div className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm space-y-0">
                 {stats.map((s, idx, arr) => (
                   <div
                     key={s.label}
-                    className={`flex justify-between items-center py-4 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                    className={`flex justify-between items-center py-4 ${idx < arr.length - 1 ? "border-b border-slate-100" : ""}`}
                   >
                     <span className="text-sm text-slate-500">{s.label}</span>
-                    <span className="text-xl font-bold text-white">{s.value}</span>
+                    <span className="text-xl font-bold text-slate-900">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -103,17 +103,17 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <span className="tag mb-3 inline-block">Values</span>
-            <h2 className="text-2xl font-bold text-white">How we work</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-3">Values</span>
+            <h2 className="text-2xl font-bold text-slate-900">How we work</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
             {values.map((v) => (
-              <div key={v.title} className="glass card-hover rounded-xl p-7">
-                <h3 className="text-sm font-semibold text-white mb-2">{v.title}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">{v.desc}</p>
+              <div key={v.title} className="bg-white border border-slate-200 rounded-xl p-7 hover:shadow-lg hover:border-blue-200 transition">
+                <h3 className="text-sm font-semibold text-slate-900 mb-2">{v.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -121,23 +121,23 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-          <div className="glass rounded-xl p-8">
-            <p className="text-xs font-semibold text-electric-blue uppercase tracking-widest mb-4">
+          <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+            <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-4">
               Mission
             </p>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-700 text-sm leading-relaxed">
               To help organizations build AI systems that create real value — and
               security programs that protect them reliably, without security
               theater.
             </p>
           </div>
-          <div className="glass rounded-xl p-8">
-            <p className="text-xs font-semibold text-electric-blue uppercase tracking-widest mb-4">
+          <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-sm">
+            <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-4">
               Vision
             </p>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-700 text-sm leading-relaxed">
               A world where AI and security engineering are practiced as one
               discipline — where teams build confidently because they've
               designed trust into their systems from the start.
@@ -147,12 +147,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-violet-700">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Let's work together
           </h2>
-          <p className="text-slate-400 mb-8 text-sm">
+          <p className="text-blue-100 mb-8 text-sm">
             Whether you need a security assessment, an AI strategy, or both —
             we'll start with a conversation.
           </p>
