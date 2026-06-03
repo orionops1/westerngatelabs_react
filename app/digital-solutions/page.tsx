@@ -196,19 +196,19 @@ const process = [
 
 export default function DigitalSolutionsPage() {
   return (
-    <div className="bg-[#03050f]">
+    <div className="bg-white">
 
       {/* Hero */}
-      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 via-cyan-50/30 to-white">
         <div className="absolute inset-0 dot-grid opacity-30" />
-        <div className="hero-glow w-[500px] h-[500px] bg-cyan-600/8 -top-20 right-0" />
+        <div className="hero-glow w-[500px] h-[500px] bg-cyan-600/5 -top-20 right-0" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">Digital Solutions</span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+          <span className="inline-block px-4 py-2 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-4">Digital Solutions</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight mb-5 max-w-3xl">
             Websites & web apps<br className="hidden sm:block" />
-            <span className="gradient-text">built for growth</span>
+            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">built for growth</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-400 max-w-xl mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-xl mb-8 leading-relaxed">
             From business websites and landing pages to custom web applications and e-commerce platforms —
             we build digital solutions that drive results.
           </p>
@@ -224,18 +224,18 @@ export default function DigitalSolutionsPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.title} className="glass rounded-xl p-6 hover:border-cyan-500/30 transition">
-                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4">
-                    <Icon className="w-5 h-5 text-cyan-400" />
+                <div key={feature.title} className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md hover:border-cyan-300 transition">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-50 flex items-center justify-center mb-4">
+                    <Icon className="w-5 h-5 text-cyan-600" />
                   </div>
-                  <h3 className="text-sm font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-xs text-slate-500">{feature.desc}</p>
+                  <h3 className="text-sm font-bold text-slate-900 mb-2">{feature.title}</h3>
+                  <p className="text-xs text-slate-600">{feature.desc}</p>
                 </div>
               );
             })}
@@ -244,11 +244,11 @@ export default function DigitalSolutionsPage() {
       </section>
 
       {/* Services — each with anchor id */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="mb-12">
-            <span className="tag mb-3 inline-block">Our Services</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
+            <span className="inline-block px-4 py-2 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-3">Our Services</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">
               Complete digital solutions
             </h2>
           </div>
@@ -259,7 +259,7 @@ export default function DigitalSolutionsPage() {
                 <div
                   key={svc.id}
                   id={svc.id}
-                  className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20 hover:border-cyan-500/40 transition`}
+                  className={`bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:shadow-lg hover:border-cyan-300 transition scroll-mt-20`}
                 >
                   <div className="flex flex-col lg:flex-row gap-6">
                     <div className={`w-14 h-14 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
@@ -268,13 +268,13 @@ export default function DigitalSolutionsPage() {
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                         <div>
-                          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{svc.title}</h2>
+                          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">{svc.title}</h2>
                           <div className="flex flex-wrap gap-3 text-xs">
-                            <span className="text-slate-500">
-                              <span className="text-slate-400 font-semibold">Pricing:</span> {svc.pricing}
+                            <span className="text-slate-600">
+                              <span className="text-slate-700 font-semibold">Pricing:</span> {svc.pricing}
                             </span>
-                            <span className="text-slate-500">
-                              <span className="text-slate-400 font-semibold">Timeline:</span> {svc.timeline}
+                            <span className="text-slate-600">
+                              <span className="text-slate-700 font-semibold">Timeline:</span> {svc.timeline}
                             </span>
                           </div>
                         </div>
@@ -282,11 +282,11 @@ export default function DigitalSolutionsPage() {
                           Get Quote
                         </Button>
                       </div>
-                      <p className="text-sm text-slate-400 leading-relaxed mb-6">{svc.desc}</p>
+                      <p className="text-sm text-slate-600 leading-relaxed mb-6">{svc.desc}</p>
                       <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                         {svc.capabilities.map((cap) => (
-                          <div key={cap} className="flex items-center gap-2 text-xs text-slate-400">
-                            <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                          <div key={cap} className="flex items-center gap-2 text-xs text-slate-600">
+                            <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                             {cap}
                           </div>
                         ))}
@@ -301,17 +301,17 @@ export default function DigitalSolutionsPage() {
       </section>
 
       {/* Tech Stack */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10">
-            <span className="tag mb-3 inline-block">Technology</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">Built with modern tools</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-3">Technology</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Built with modern tools</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {techStack.map((tech) => (
-              <div key={tech.name} className="glass rounded-xl p-5 text-center hover:border-cyan-500/30 transition">
-                <p className="text-sm font-bold text-white mb-1">{tech.name}</p>
-                <p className="text-xs text-slate-500">{tech.desc}</p>
+              <div key={tech.name} className="bg-white border border-slate-200 rounded-xl p-5 text-center hover:shadow-sm hover:border-cyan-300 transition">
+                <p className="text-sm font-bold text-slate-900 mb-1">{tech.name}</p>
+                <p className="text-xs text-slate-600">{tech.desc}</p>
               </div>
             ))}
           </div>
@@ -319,28 +319,28 @@ export default function DigitalSolutionsPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10">
-            <span className="tag mb-3 inline-block">Process</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">How we deliver projects</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-cyan-50 text-cyan-700 text-sm font-semibold mb-3">Process</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">How we deliver projects</h2>
           </div>
-          <div className="glass rounded-2xl overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
             {process.map((item, idx, arr) => (
               <div
                 key={item.phase}
-                className={`p-6 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                className={`p-6 ${idx < arr.length - 1 ? "border-b border-slate-100" : ""}`}
               >
                 <div className="flex gap-5 mb-3">
-                  <span className="text-xs font-mono text-cyan-500/60 w-6 flex-shrink-0 mt-0.5">
+                  <span className="text-xs font-mono text-cyan-600 bg-cyan-50 w-8 h-8 flex items-center justify-center rounded-lg flex-shrink-0 font-bold">
                     {String(idx + 1).padStart(2, "0")}
                   </span>
                   <div className="flex-1">
-                    <p className="text-sm font-bold text-white mb-1">{item.phase}</p>
-                    <p className="text-xs text-slate-400 mb-3">{item.desc}</p>
+                    <p className="text-sm font-bold text-slate-900 mb-1">{item.phase}</p>
+                    <p className="text-xs text-slate-600 mb-3">{item.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {item.deliverables.map((d) => (
-                        <span key={d} className="text-xs px-2 py-1 rounded-md bg-cyan-500/10 text-cyan-300">
+                        <span key={d} className="text-xs px-2 py-1 rounded-md bg-cyan-50 text-cyan-700 border border-cyan-100">
                           {d}
                         </span>
                       ))}
@@ -354,12 +354,12 @@ export default function DigitalSolutionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-cyan-600 to-blue-700">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready to start your project?
           </h2>
-          <p className="text-slate-400 mb-8 text-sm">
+          <p className="text-cyan-100 mb-8 text-sm">
             Get a free consultation and project estimate. We'll help you choose the 
             right solution for your business goals and budget.
           </p>

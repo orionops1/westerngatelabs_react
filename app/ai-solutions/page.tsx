@@ -133,19 +133,19 @@ const outcomes = [
 
 export default function AISolutionsPage() {
   return (
-    <div className="bg-[#03050f]">
+    <div className="bg-white">
 
       {/* Hero */}
-      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-white">
         <div className="absolute inset-0 dot-grid opacity-30" />
-        <div className="hero-glow w-[500px] h-[500px] bg-blue-600/8 -top-20 right-0" />
+        <div className="hero-glow w-[500px] h-[500px] bg-blue-600/5 -top-20 right-0" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">AI Solutions</span>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+          <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-4">AI Solutions</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight tracking-tight mb-5 max-w-3xl">
             AI that works in<br className="hidden sm:block" />
-            <span className="gradient-text">the real world</span>
+            <span className="bg-gradient-to-r from-blue-600 to-violet-600 bg-clip-text text-transparent">the real world</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-400 max-w-xl mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 max-w-xl mb-8 leading-relaxed">
             Custom AI systems, chatbots, automation platforms, and intelligent
             assistants designed to improve business efficiency.
           </p>
@@ -161,19 +161,19 @@ export default function AISolutionsPage() {
       </section>
 
       {/* Outcomes */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
           {outcomes.map((o) => (
             <div key={o.label} className="text-center">
-              <p className="text-2xl sm:text-3xl font-bold text-blue-400 mb-1">{o.value}</p>
-              <p className="text-xs text-slate-500">{o.label}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1">{o.value}</p>
+              <p className="text-xs text-slate-600">{o.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Services — each with anchor id */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto space-y-6">
           {services.map((svc) => {
             const Icon = svc.icon;
@@ -181,7 +181,7 @@ export default function AISolutionsPage() {
               <div
                 key={svc.id}
                 id={svc.id}
-                className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20 hover:border-blue-500/40 transition`}
+                className={`bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 hover:shadow-lg hover:border-blue-300 transition scroll-mt-20`}
               >
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className={`w-14 h-14 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
@@ -190,13 +190,13 @@ export default function AISolutionsPage() {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
                       <div>
-                        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{svc.title}</h2>
+                        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">{svc.title}</h2>
                         <div className="flex flex-wrap gap-3 text-xs">
-                          <span className="text-slate-500">
-                            <span className="text-slate-400 font-semibold">Pricing:</span> {svc.pricing}
+                          <span className="text-slate-600">
+                            <span className="text-slate-700 font-semibold">Pricing:</span> {svc.pricing}
                           </span>
-                          <span className="text-slate-500">
-                            <span className="text-slate-400 font-semibold">Timeline:</span> {svc.timeline}
+                          <span className="text-slate-600">
+                            <span className="text-slate-700 font-semibold">Timeline:</span> {svc.timeline}
                           </span>
                         </div>
                       </div>
@@ -204,11 +204,11 @@ export default function AISolutionsPage() {
                         Get Quote
                       </Button>
                     </div>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-6">{svc.desc}</p>
+                    <p className="text-sm text-slate-600 leading-relaxed mb-6">{svc.desc}</p>
                     <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                       {svc.capabilities.map((cap) => (
-                        <div key={cap} className="flex items-center gap-2 text-xs text-slate-400">
-                          <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                        <div key={cap} className="flex items-center gap-2 text-xs text-slate-600">
+                          <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
                           {cap}
                         </div>
                       ))}
@@ -222,13 +222,13 @@ export default function AISolutionsPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 section-alt">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10">
-            <span className="tag mb-3 inline-block">Process</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">How we deliver AI projects</h2>
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold mb-3">Process</span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">How we deliver AI projects</h2>
           </div>
-          <div className="glass rounded-2xl overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
             {[
               { phase: "Discovery",        desc: "Understand your data, goals, and infrastructure constraints." },
               { phase: "Strategy",         desc: "Define the use case, select the right models, and scope a pilot." },
@@ -238,14 +238,14 @@ export default function AISolutionsPage() {
             ].map((item, idx, arr) => (
               <div
                 key={item.phase}
-                className={`flex gap-5 p-5 sm:p-6 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                className={`flex gap-5 p-5 sm:p-6 ${idx < arr.length - 1 ? "border-b border-slate-100" : ""}`}
               >
-                <span className="text-xs font-mono text-blue-500/40 w-5 flex-shrink-0 mt-0.5">
+                <span className="text-xs font-mono text-blue-600 bg-blue-50 w-8 h-8 flex items-center justify-center rounded-lg flex-shrink-0 font-bold mt-0.5">
                   {String(idx + 1).padStart(2, "0")}
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white mb-0.5">{item.phase}</p>
-                  <p className="text-xs text-slate-500">{item.desc}</p>
+                  <p className="text-sm font-semibold text-slate-900 mb-0.5">{item.phase}</p>
+                  <p className="text-xs text-slate-600">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -254,12 +254,12 @@ export default function AISolutionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-600 to-violet-700">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Ready to explore AI for your business?
           </h2>
-          <p className="text-slate-400 mb-8 text-sm">
+          <p className="text-blue-100 mb-8 text-sm">
             We&apos;ll start with a free scoping call — no commitment, no pitch deck.
           </p>
           <Button href="/contact" size="lg">
