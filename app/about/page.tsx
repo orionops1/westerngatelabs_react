@@ -51,7 +51,7 @@ export default function AboutPage() {
           </h1>
           <p className="text-lg text-slate-400 max-w-xl">
             Western Gate Labs is an AI-first technology company based in Malabe,
-            Sri Lanka. We help organizations build intelligent systems on Google Cloud
+            Sri Lanka. We help organizations build intelligent systems
             and defend them — because the two problems are inseparable.
           </p>
         </div>
@@ -80,11 +80,9 @@ export default function AboutPage() {
                 systems actually fail in the real world.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Our infrastructure runs on Google Cloud — we use Vertex AI for model
-                training and deployment, BigQuery for analytics at scale, and Cloud
-                Run for containerized AI workloads. This gives clients enterprise-grade
-                AI capabilities without the overhead of managing their own ML
-                infrastructure.
+                We leverage modern cloud infrastructure and AI platforms to give clients
+                enterprise-grade capabilities without the overhead of managing their own
+                ML infrastructure — allowing faster time-to-production and better scalability.
               </p>
             </div>
             <div className="lg:col-span-2">

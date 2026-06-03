@@ -1,15 +1,14 @@
 import { Metadata } from "next";
 import Button from "@/components/Button";
-import { Brain, MessageSquare, Sparkles, Zap, Cpu, ArrowRight } from "lucide-react";
+import { Brain, MessageSquare, Sparkles, Zap, Cpu, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "AI Solutions | Western Gate Labs",
   description:
-    "AI Website Chatbots, Knowledge Assistants, Content Generation, Business Automation, and Custom AI Solutions built on Google Cloud — by Western Gate Labs, Sri Lanka.",
+    "AI Website Chatbots, Knowledge Assistants, Content Generation, Business Automation, and Custom AI Solutions — by Western Gate Labs, Sri Lanka.",
   keywords: [
     "AI chatbot Sri Lanka", "AI solutions", "AI business automation",
     "AI knowledge assistant", "AI content generation", "custom AI development",
-    "Google Cloud AI", "Vertex AI", "Gemini API",
   ],
   openGraph: {
     title: "AI Solutions | Western Gate Labs",
@@ -33,8 +32,11 @@ const services = [
       "Multi-language support",
       "Custom personality & tone",
       "Analytics dashboard",
+      "Knowledge base training",
+      "Appointment booking",
     ],
-    built: "Built with Gemini API · Dialogflow CX · Vertex AI",
+    pricing: "From LKR 40,000",
+    timeline: "3-4 weeks",
   },
   {
     id: "assistants",
@@ -51,8 +53,11 @@ const services = [
       "Semantic search",
       "Slack / Teams integration",
       "Audit logs",
+      "Source attribution",
+      "Continuous learning",
     ],
-    built: "Built with Vertex AI Search · Gemini · Cloud Storage",
+    pricing: "From LKR 50,000",
+    timeline: "4-6 weeks",
   },
   {
     id: "content",
@@ -69,8 +74,11 @@ const services = [
       "Multi-format export",
       "Human review workflow",
       "CMS publishing integration",
+      "A/B testing variants",
+      "Performance analytics",
     ],
-    built: "Built with Gemini API · Vertex AI · Cloud Workflows",
+    pricing: "From LKR 35,000",
+    timeline: "3-5 weeks",
   },
   {
     id: "automation",
@@ -87,8 +95,11 @@ const services = [
       "Multi-step workflow orchestration",
       "Exception handling with human fallback",
       "Process analytics",
+      "Integration with existing systems",
+      "Custom workflow design",
     ],
-    built: "Built with Document AI · Cloud Workflows · Pub/Sub",
+    pricing: "From LKR 65,000",
+    timeline: "6-8 weeks",
   },
   {
     id: "custom",
@@ -105,8 +116,11 @@ const services = [
       "Computer vision systems",
       "Anomaly & fraud detection",
       "MLOps & model monitoring",
+      "Data pipeline development",
+      "Model deployment & scaling",
     ],
-    built: "Built with Vertex AI · BigQuery ML · Cloud Run",
+    pricing: "From LKR 100,000",
+    timeline: "8-12 weeks",
   },
 ];
 
@@ -133,8 +147,7 @@ export default function AISolutionsPage() {
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-xl mb-8 leading-relaxed">
             Custom AI systems, chatbots, automation platforms, and intelligent
-            assistants designed to improve business efficiency — built on Google
-            Cloud's AI infrastructure.
+            assistants designed to improve business efficiency.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button href="/contact" size="lg">
@@ -168,25 +181,38 @@ export default function AISolutionsPage() {
               <div
                 key={svc.id}
                 id={svc.id}
-                className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20`}
+                className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20 hover:border-blue-500/40 transition`}
               >
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <div className={`w-12 h-12 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
-                    <Icon className={`w-6 h-6 ${svc.accent}`} />
+                <div className="flex flex-col lg:flex-row gap-6">
+                  <div className={`w-14 h-14 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
+                    <Icon className={`w-7 h-7 ${svc.accent}`} />
                   </div>
                   <div className="flex-1">
-                    <h2 className="text-lg sm:text-xl font-bold text-white mb-3">{svc.title}</h2>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-5">{svc.desc}</p>
-                    <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-5">
+                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                      <div>
+                        <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{svc.title}</h2>
+                        <div className="flex flex-wrap gap-3 text-xs">
+                          <span className="text-slate-500">
+                            <span className="text-slate-400 font-semibold">Pricing:</span> {svc.pricing}
+                          </span>
+                          <span className="text-slate-500">
+                            <span className="text-slate-400 font-semibold">Timeline:</span> {svc.timeline}
+                          </span>
+                        </div>
+                      </div>
+                      <Button href="/contact" variant="secondary" size="sm">
+                        Get Quote
+                      </Button>
+                    </div>
+                    <p className="text-sm text-slate-400 leading-relaxed mb-6">{svc.desc}</p>
+                    <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
                       {svc.capabilities.map((cap) => (
                         <div key={cap} className="flex items-center gap-2 text-xs text-slate-400">
-                          <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${svc.accent}`}
-                            style={{ background: "currentColor" }} />
+                          <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
                           {cap}
                         </div>
                       ))}
                     </div>
-                    <p className={`text-xs font-mono ${svc.accent} opacity-60`}>{svc.built}</p>
                   </div>
                 </div>
               </div>

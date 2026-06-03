@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 import { useState, useRef } from "react";
 import { Menu, X, ChevronDown, Brain, Shield, Globe } from "lucide-react";
 
-const serviceGroups = [
+const services = [
   {
-    group: "AI Solutions",
+    name: "AI Solutions",
     icon: Brain,
     href: "/ai-solutions",
     color: "text-blue-600",
     bg: "bg-blue-50",
-    children: [
+    items: [
       { label: "AI Website Chatbots",     href: "/ai-solutions#chatbots"   },
       { label: "AI Knowledge Assistants", href: "/ai-solutions#assistants" },
       { label: "AI Content Generation",   href: "/ai-solutions#content"    },
@@ -21,12 +21,12 @@ const serviceGroups = [
     ],
   },
   {
-    group: "Cybersecurity",
+    name: "Cybersecurity",
     icon: Shield,
     href: "/cybersecurity",
     color: "text-violet-600",
     bg: "bg-violet-50",
-    children: [
+    items: [
       { label: "Security Assessments",      href: "/cybersecurity#assessments"   },
       { label: "Vulnerability Assessments", href: "/cybersecurity#vulnerability" },
       { label: "Security Consulting",       href: "/cybersecurity#consulting"    },
@@ -34,12 +34,12 @@ const serviceGroups = [
     ],
   },
   {
-    group: "Digital Solutions",
+    name: "Digital Solutions",
     icon: Globe,
     href: "/digital-solutions",
     color: "text-cyan-600",
     bg: "bg-cyan-50",
-    children: [
+    items: [
       { label: "Business Websites",    href: "/digital-solutions#websites"  },
       { label: "WordPress Development",href: "/digital-solutions#wordpress" },
       { label: "Next.js Development",  href: "/digital-solutions#nextjs"    },
@@ -55,17 +55,23 @@ const otherNav = [
 ];
 
 export default function Navigation() {
-  const [isOpen,    setIsOpen]    = useState(false);
-  const [dropdown,  setDropdown]  = useState(false);
-  const [mobOpen,   setMobOpen]   = useState(false);
-  const pathname                  = usePathname();
-  const timer                     = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isOpen,       setIsOpen]       = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobOpen,      setMobOpen]      = useState<string | null>(null);
+  const pathname                        = usePathname();
+  const timer                           = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(href.split("#")[0] + "/");
 
-  const openDrop  = () => { if (timer.current) clearTimeout(timer.current); setDropdown(true); };
-  const closeDrop = () => { timer.current = setTimeout(() => setDropdown(false), 130); };
+  const openDrop = (name: string) => {
+    if (timer.current) clearTimeout(timer.current);
+    setActiveDropdown(name);
+  };
+  
+  const closeDrop = () => {
+    timer.current = setTimeout(() => setActiveDropdown(null), 130);
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
@@ -82,74 +88,77 @@ export default function Navigation() {
             </span>
           </Link>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-7">
+          {/* Desktop nav - 3 main services with individual dropdowns */}
+          <div className="hidden md:flex items-center gap-6">
 
-            {/* Services dropdown */}
-            <div className="relative" onMouseEnter={openDrop} onMouseLeave={closeDrop}>
-              <button className={`flex items-center gap-1 text-sm font-medium transition py-1 ${
-                dropdown ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
-              }`}>
-                Services
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdown ? "rotate-180 text-blue-600" : ""}`} />
-              </button>
-
-              {dropdown && (
+            {/* Each service as separate dropdown */}
+            {services.map((service) => {
+              const Icon = service.icon;
+              const isOpen = activeDropdown === service.name;
+              return (
                 <div
-                  className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[640px]"
-                  onMouseEnter={openDrop}
+                  key={service.name}
+                  className="relative"
+                  onMouseEnter={() => openDrop(service.name)}
                   onMouseLeave={closeDrop}
                 >
-                  <div className="bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-200/60 overflow-hidden">
-                    <div className="grid grid-cols-3">
-                      {serviceGroups.map((grp, idx) => {
-                        const Icon = grp.icon;
-                        return (
-                          <div
-                            key={grp.group}
-                            className={`p-5 ${idx < serviceGroups.length - 1 ? "border-r border-slate-100" : ""}`}
+                  <button
+                    className={`flex items-center gap-1 text-sm font-medium transition py-1 ${
+                      isOpen || isActive(service.href)
+                        ? service.color
+                        : "text-slate-600 hover:text-slate-900"
+                    }`}
+                  >
+                    {service.name}
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform ${
+                        isOpen ? `rotate-180 ${service.color}` : ""
+                      }`}
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div
+                      className="absolute top-full left-0 pt-3 w-56"
+                      onMouseEnter={() => openDrop(service.name)}
+                      onMouseLeave={closeDrop}
+                    >
+                      <div className="bg-white border border-slate-200 rounded-xl shadow-xl shadow-slate-200/60 overflow-hidden">
+                        <div className="p-3">
+                          <Link
+                            href={service.href}
+                            onClick={() => setActiveDropdown(null)}
+                            className="flex items-center gap-2 px-3 py-2 mb-2 rounded-lg hover:bg-slate-50 transition group"
                           >
-                            <Link
-                              href={grp.href}
-                              onClick={() => setDropdown(false)}
-                              className="flex items-center gap-2 mb-3 group/h"
-                            >
-                              <div className={`w-6 h-6 rounded-md ${grp.bg} flex items-center justify-center`}>
-                                <Icon className={`w-3.5 h-3.5 ${grp.color}`} />
-                              </div>
-                              <span className={`text-xs font-bold ${grp.color}`}>{grp.group}</span>
-                            </Link>
+                            <div className={`w-6 h-6 rounded-md ${service.bg} flex items-center justify-center`}>
+                              <Icon className={`w-3.5 h-3.5 ${service.color}`} />
+                            </div>
+                            <span className={`text-xs font-bold ${service.color}`}>
+                              View All {service.name}
+                            </span>
+                          </Link>
+                          <div className="border-t border-slate-100 pt-2">
                             <ul className="space-y-0.5">
-                              {grp.children.map((c) => (
-                                <li key={c.href}>
+                              {service.items.map((item) => (
+                                <li key={item.href}>
                                   <Link
-                                    href={c.href}
-                                    onClick={() => setDropdown(false)}
-                                    className="block px-2 py-1.5 text-xs text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-md transition"
+                                    href={item.href}
+                                    onClick={() => setActiveDropdown(null)}
+                                    className="block px-3 py-2 text-xs text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-md transition"
                                   >
-                                    {c.label}
+                                    {item.label}
                                   </Link>
                                 </li>
                               ))}
                             </ul>
                           </div>
-                        );
-                      })}
+                        </div>
+                      </div>
                     </div>
-                    <div className="px-5 py-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-                      <p className="text-xs text-slate-400">Not sure which service you need?</p>
-                      <Link
-                        href="/contact"
-                        onClick={() => setDropdown(false)}
-                        className="text-xs font-semibold text-blue-600 hover:text-blue-700 transition"
-                      >
-                        Talk to us →
-                      </Link>
-                    </div>
-                  </div>
+                  )}
                 </div>
-              )}
-            </div>
+              );
+            })}
 
             {/* Other links */}
             {otherNav.map((item) => (
@@ -192,43 +201,51 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden pb-5 pt-3 border-t border-slate-100 space-y-1">
 
-            {/* Services accordion */}
-            <button
-              onClick={() => setMobOpen(!mobOpen)}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition"
-            >
-              Services
-              <ChevronDown className={`w-4 h-4 transition-transform text-slate-400 ${mobOpen ? "rotate-180" : ""}`} />
-            </button>
+            {/* Each service as accordion */}
+            {services.map((service) => {
+              const Icon = service.icon;
+              const isServiceOpen = mobOpen === service.name;
+              return (
+                <div key={service.name}>
+                  <button
+                    onClick={() => setMobOpen(isServiceOpen ? null : service.name)}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg transition"
+                  >
+                    <span className="flex items-center gap-2">
+                      <Icon className="w-4 h-4" />
+                      {service.name}
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform text-slate-400 ${
+                        isServiceOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-            {mobOpen && (
-              <div className="pl-3 space-y-3 pb-2">
-                {serviceGroups.map((grp) => {
-                  const Icon = grp.icon;
-                  return (
-                    <div key={grp.group}>
+                  {isServiceOpen && (
+                    <div className="pl-6 space-y-1 pb-2 pt-1">
                       <Link
-                        href={grp.href}
+                        href={service.href}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center gap-2 px-3 py-1.5 text-xs font-bold ${grp.color}`}
+                        className={`flex items-center gap-2 px-3 py-2 text-xs font-bold ${service.color} hover:bg-slate-50 rounded-lg transition`}
                       >
-                        <Icon className="w-3.5 h-3.5" /> {grp.group}
+                        View All {service.name}
                       </Link>
-                      {grp.children.map((c) => (
+                      {service.items.map((item) => (
                         <Link
-                          key={c.href}
-                          href={c.href}
+                          key={item.href}
+                          href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className="block px-5 py-2 text-sm text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition"
+                          className="block px-3 py-2 text-sm text-slate-500 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition"
                         >
-                          {c.label}
+                          {item.label}
                         </Link>
                       ))}
                     </div>
-                  );
-                })}
-              </div>
-            )}
+                  )}
+                </div>
+              );
+            })}
 
             {otherNav.map((item) => (
               <Link

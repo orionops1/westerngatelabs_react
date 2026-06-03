@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Button from "@/components/Button";
-import ServiceCard from "@/components/ServiceCard";
-import { Shield, Search, AlertTriangle, Lock, Eye, Users } from "lucide-react";
+import { Shield, Search, AlertTriangle, Lock, Eye, Users, CheckCircle2, ArrowRight, Target, FileSearch, Radar } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Cybersecurity | Western Gate Labs",
@@ -16,46 +15,88 @@ export const metadata: Metadata = {
 
 const services = [
   {
+    id: "assessments",
     icon: Search,
     title: "Security Assessments",
-    description: "A thorough evaluation of your attack surface, controls, and risk exposure — with a prioritized remediation plan.",
-    href: "/cybersecurity",
-    features: ["Asset discovery", "Risk scoring", "Executive-ready reporting"],
+    accent: "text-blue-400",
+    bg: "bg-blue-500/10",
+    border: "border-blue-500/20",
+    description: "A thorough evaluation of your attack surface, controls, and risk exposure — with a prioritized remediation plan based on real business impact.",
+    capabilities: [
+      "Complete asset discovery and inventory",
+      "Risk scoring and prioritization",
+      "Control effectiveness evaluation",
+      "Gap analysis against frameworks",
+      "Executive-ready reporting",
+      "Actionable remediation roadmap",
+      "Follow-up verification testing",
+      "Compliance mapping",
+    ],
+    pricing: "From LKR 45,000",
+    timeline: "2-3 weeks",
   },
   {
+    id: "vulnerability",
     icon: AlertTriangle,
-    title: "Vulnerability Management",
-    description: "Continuous identification and prioritization of security weaknesses before they can be exploited.",
-    href: "/cybersecurity",
-    features: ["Automated scanning", "Manual validation", "Remediation guidance"],
+    title: "Vulnerability Assessments",
+    accent: "text-red-400",
+    bg: "bg-red-500/10",
+    border: "border-red-500/20",
+    description: "Continuous identification and prioritization of security weaknesses before they can be exploited. Both automated scanning and manual verification.",
+    capabilities: [
+      "Automated vulnerability scanning",
+      "Manual verification of findings",
+      "False positive elimination",
+      "CVSS scoring and risk rating",
+      "Patch management guidance",
+      "Remediation tracking",
+      "Quarterly rescans",
+      "Vulnerability trend analysis",
+    ],
+    pricing: "From LKR 35,000",
+    timeline: "1-2 weeks",
   },
   {
+    id: "consulting",
     icon: Shield,
-    title: "Penetration Testing",
-    description: "Real-world attack simulations against your network, applications, and people — to find what your defenses miss.",
-    href: "/cybersecurity",
-    features: ["Network & infrastructure", "Web & API testing", "Social engineering"],
+    title: "Security Consulting",
+    accent: "text-violet-400",
+    bg: "bg-violet-500/10",
+    border: "border-violet-500/20",
+    description: "Strategic guidance on building and improving your security program. From policy development to architecture review — we help you make the right security decisions.",
+    capabilities: [
+      "Security program development",
+      "Policy and procedure creation",
+      "Architecture and design review",
+      "Technology selection guidance",
+      "Compliance roadmap planning",
+      "Security training programs",
+      "Vendor security assessments",
+      "Board-level reporting",
+    ],
+    pricing: "From LKR 40,000/month",
+    timeline: "Ongoing engagement",
   },
   {
-    icon: Lock,
-    title: "Security Architecture",
-    description: "Strategic guidance on designing systems that are secure by default — from cloud architecture to identity management.",
-    href: "/cybersecurity",
-    features: ["Zero-trust design", "IAM & access controls", "Cloud security posture"],
-  },
-  {
-    icon: Eye,
-    title: "Incident Response",
-    description: "When something happens, speed and clarity matter. We contain, investigate, and recover — fast.",
-    href: "/cybersecurity",
-    features: ["24/7 incident support", "Forensic investigation", "Post-incident review"],
-  },
-  {
-    icon: Users,
-    title: "Managed Security",
-    description: "Continuous monitoring and threat detection without the cost of a full in-house security team.",
-    href: "/cybersecurity",
-    features: ["SOC-as-a-service", "SIEM management", "Threat hunting"],
+    id: "audits",
+    icon: FileSearch,
+    title: "Website Security Audits",
+    accent: "text-cyan-400",
+    bg: "bg-cyan-500/10",
+    border: "border-cyan-500/20",
+    description: "Comprehensive security testing of your web applications — identifying vulnerabilities before attackers do. OWASP Top 10 coverage and beyond.",
+    capabilities: [
+      "OWASP Top 10 testing",
+      "Authentication bypass attempts",
+      "SQL injection & XSS testing",
+      "API security review",
+      "Session management testing",
+      "Business logic flaws",
+      "SSL/TLS configuration audit",
+      "Detailed vulnerability report",
+    ],
+    pricing: "From LKR 30,000",
+    timeline: "1-2 weeks",
   },
 ];
 
@@ -86,22 +127,62 @@ export default function CybersecurityPage() {
             you fix what matters first, then build a program that stays ahead.
           </p>
           <Button href="/contact" size="lg">
-            Request a security assessment
+            Request Security Assessment <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
       </section>
 
       {/* Services */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="mb-12">
             <span className="tag mb-3 inline-block">Services</span>
-            <h2 className="text-2xl font-bold text-white">Our security capabilities</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white">Our security capabilities</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, idx) => (
-              <ServiceCard key={idx} {...s} />
-            ))}
+          <div className="space-y-6">
+            {services.map((svc) => {
+              const Icon = svc.icon;
+              return (
+                <div
+                  key={svc.id}
+                  id={svc.id}
+                  className={`glass rounded-2xl p-6 sm:p-8 border ${svc.border} scroll-mt-20 hover:border-violet-500/40 transition`}
+                >
+                  <div className="flex flex-col lg:flex-row gap-6">
+                    <div className={`w-14 h-14 rounded-xl ${svc.bg} flex items-center justify-center flex-shrink-0`}>
+                      <Icon className={`w-7 h-7 ${svc.accent}`} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                        <div>
+                          <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">{svc.title}</h2>
+                          <div className="flex flex-wrap gap-3 text-xs">
+                            <span className="text-slate-500">
+                              <span className="text-slate-400 font-semibold">Pricing:</span> {svc.pricing}
+                            </span>
+                            <span className="text-slate-500">
+                              <span className="text-slate-400 font-semibold">Timeline:</span> {svc.timeline}
+                            </span>
+                          </div>
+                        </div>
+                        <Button href="/contact" variant="secondary" size="sm">
+                          Get Quote
+                        </Button>
+                      </div>
+                      <p className="text-sm text-slate-400 leading-relaxed mb-6">{svc.description}</p>
+                      <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
+                        {svc.capabilities.map((cap) => (
+                          <div key={cap} className="flex items-center gap-2 text-xs text-slate-400">
+                            <CheckCircle2 className="w-4 h-4 text-green-400 flex-shrink-0" />
+                            {cap}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
