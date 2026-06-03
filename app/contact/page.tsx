@@ -1,162 +1,151 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Western Gate Labs",
+  title: "Contact | Western Gate Labs",
   description:
-    "Get in touch with Western Gate Labs. Request a consultation or ask any questions.",
+    "Get in touch with Western Gate Labs. Request a consultation for AI solutions or cybersecurity services.",
   openGraph: {
-    title: "Contact Us | Western Gate Labs",
-    description: "Ready to transform your business? Let's talk.",
+    title: "Contact | Western Gate Labs",
+    description: "Let's talk about what you're building or defending.",
   },
 };
 
+const faqs = [
+  {
+    q: "How quickly can you start a project?",
+    a: "Typically within 2–3 weeks of engagement, depending on scope and current capacity. Urgent security incidents are prioritized.",
+  },
+  {
+    q: "What's the minimum engagement size?",
+    a: "Project-based work starts at $50K. For advisory or assessments, we offer focused engagements starting at $10K.",
+  },
+  {
+    q: "Do you work with startups or only enterprises?",
+    a: "Both. About half our clients are Series A–C startups. We scope work to budget and stage.",
+  },
+  {
+    q: "How do you handle sensitive data during security assessments?",
+    a: "All work is done under NDA. We follow strict data handling protocols and can work within your compliance environment.",
+  },
+  {
+    q: "Can you integrate with our existing tools and workflows?",
+    a: "Yes. We design solutions to fit your stack, not replace it — unless a change is genuinely warranted.",
+  },
+  {
+    q: "Do you offer ongoing support after a project ends?",
+    a: "Yes. Managed retainer engagements provide continuous support. We also offer ad-hoc advisory for past clients.",
+  },
+];
+
 export default function ContactPage() {
   return (
-    <div>
+    <div className="bg-navy-900">
+
       {/* Hero */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-bold">
-            Let's Build Something
-            <span className="gradient-text"> Amazing</span>
+      <section className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-25" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <span className="tag mb-4 inline-block">Contact</span>
+          <h1 className="text-4xl sm:text-5xl font-bold text-white leading-tight tracking-tight mb-4 max-w-2xl">
+            Let's talk about your project
           </h1>
-          <p className="text-xl text-gray-300">
-            Have questions? Want to discuss your project? We'd love to hear from you.
+          <p className="text-slate-400 max-w-lg">
+            Fill in the form and we'll respond within one business day. No sales
+            pipeline — just a direct conversation.
           </p>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+      {/* Content */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12">
 
-            <div className="glass p-6 rounded-xl space-y-4">
-              <div className="flex gap-4">
-                <Mail className="w-6 h-6 text-electric-blue flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold mb-1">Email</p>
-                  <a
-                    href="mailto:hello@westerngatelabs.com"
-                    className="text-gray-400 hover:text-electric-blue transition"
-                  >
-                    hello@westerngatelabs.com
-                  </a>
-                  <p className="text-sm text-gray-500 mt-1">
-                    We typically respond within 24 hours.
-                  </p>
+          {/* Info */}
+          <div className="lg:col-span-2 space-y-7">
+            <div>
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-5">
+                Contact details
+              </p>
+              <div className="space-y-5">
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-slate-500 mb-0.5">Email</p>
+                    <a
+                      href="mailto:hello@westerngatelabs.com"
+                      className="text-sm text-white hover:text-electric-blue transition"
+                    >
+                      hello@westerngatelabs.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-slate-500 mb-0.5">Location</p>
+                    <p className="text-sm text-white">San Francisco, CA</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-slate-500 mb-0.5">Response time</p>
+                    <p className="text-sm text-white">Within 1 business day</p>
+                    <p className="text-xs text-slate-500 mt-0.5">Security incidents: 2 hours</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="glass p-6 rounded-xl space-y-4">
-              <div className="flex gap-4">
-                <Phone className="w-6 h-6 text-electric-blue flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold mb-1">Phone</p>
-                  <a
-                    href="tel:+14155552671"
-                    className="text-gray-400 hover:text-electric-blue transition"
-                  >
-                    +1 (415) 555-2671
-                  </a>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Mon-Fri, 9 AM - 6 PM PT
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass p-6 rounded-xl space-y-4">
-              <div className="flex gap-4">
-                <MapPin className="w-6 h-6 text-electric-blue flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold mb-1">Office</p>
-                  <p className="text-gray-400">
-                    San Francisco, CA<br />
-                    United States
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass p-6 rounded-xl space-y-4">
-              <div className="flex gap-4">
-                <Clock className="w-6 h-6 text-electric-blue flex-shrink-0 mt-1" />
-                <div>
-                  <p className="font-semibold mb-1">Response Time</p>
-                  <p className="text-gray-400 text-sm">
-                    Standard inquiries: 24 hours<br />
-                    Urgent matters: 2 hours (during business hours)
-                  </p>
-                </div>
-              </div>
+            <div className="glass rounded-xl p-6">
+              <p className="text-xs font-semibold text-electric-blue mb-3">
+                What to expect
+              </p>
+              <ul className="space-y-2.5">
+                {[
+                  "A real person replies — not a bot",
+                  "We'll ask a few focused questions",
+                  "Free scoping call if there's a fit",
+                  "No commitment required",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-xs text-slate-400">
+                    <span className="w-1 h-1 rounded-full bg-electric-blue flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="glass p-8 rounded-xl">
-              <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
-              <ContactForm />
-            </div>
+          {/* Form */}
+          <div className="lg:col-span-3 glass rounded-xl p-8">
+            <ContactForm />
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Frequently Asked Questions</h2>
-
-          <div className="space-y-6">
-            {[
-              {
-                q: "What's the typical timeline for an AI implementation project?",
-                a: "Most projects take 3-6 months from discovery to deployment, depending on scope and complexity. We'll provide a detailed timeline during the consultation phase.",
-              },
-              {
-                q: "Do you offer ongoing support after implementation?",
-                a: "Yes. We provide comprehensive post-deployment support including monitoring, optimization, and maintenance. Custom support packages are available.",
-              },
-              {
-                q: "What industries do you specialize in?",
-                a: "We have expertise across healthcare, finance, retail, education, manufacturing, and technology. However, our AI-first approach works for any industry.",
-              },
-              {
-                q: "Can you work with our existing systems?",
-                a: "Absolutely. We specialize in integrating AI and security solutions into existing infrastructure with minimal disruption.",
-              },
-              {
-                q: "What's your pricing model?",
-                a: "We offer flexible engagement models: project-based, time-and-materials, or managed retainers. We'll discuss what works best during consultation.",
-              },
-              {
-                q: "How do you ensure security in AI solutions?",
-                a: "Security is built into every phase: secure development practices, regular audits, compliance verification, and ongoing monitoring.",
-              },
-              {
-                q: "Do you provide training for our team?",
-                a: "Yes. We include team training and knowledge transfer as part of every engagement to ensure long-term success.",
-              },
-              {
-                q: "What's your availability for emergency support?",
-                a: "We offer 24/7 emergency support for managed services clients and extended hours for critical production issues.",
-              },
-            ].map((item, idx) => (
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-10">
+            <span className="tag mb-3 inline-block">FAQ</span>
+            <h2 className="text-2xl font-bold text-white">Common questions</h2>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((item) => (
               <details
-                key={idx}
-                className="group glass p-6 rounded-xl cursor-pointer transition"
+                key={item.q}
+                className="group glass rounded-xl cursor-pointer"
               >
-                <summary className="font-semibold flex justify-between items-center">
+                <summary className="flex justify-between items-center px-6 py-4 text-sm font-medium text-white list-none">
                   {item.q}
-                  <span className="group-open:rotate-180 transition">▼</span>
+                  <span className="text-slate-500 group-open:rotate-180 transition ml-4 flex-shrink-0 text-xs">
+                    ▾
+                  </span>
                 </summary>
-                <p className="text-gray-400 mt-4 pt-4 border-t border-navy-600">
+                <p className="px-6 pb-5 text-xs text-slate-400 leading-relaxed border-t border-white/[0.05] pt-4">
                   {item.a}
                 </p>
               </details>
@@ -164,6 +153,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }

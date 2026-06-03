@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Western Gate Labs`,
     description: post.excerpt,
-    keywords: [post.category, "Western Gate Labs", "blog"],
+    keywords: [post.category, "Western Gate Labs"],
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -35,54 +35,47 @@ export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = blogPosts[slug];
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-      {/* Back link */}
-      <Link
-        href="/blog"
-        className="inline-flex items-center gap-2 text-gray-400 hover:text-electric-blue transition mb-10 text-sm"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back to Blog
-      </Link>
+    <div className="bg-navy-900 min-h-screen">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
 
-      {/* Header */}
-      <div className="space-y-6 mb-12">
-        <div className="flex gap-2 flex-wrap">
-          <span className="px-3 py-1 bg-electric-blue/20 text-electric-blue rounded-full text-xs font-semibold">
-            {post.category}
-          </span>
-        </div>
+        {/* Back */}
+        <Link
+          href="/blog"
+          className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-white transition mb-10"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          Back to Blog
+        </Link>
 
-        <div className="text-6xl h-48 bg-navy-700 rounded-xl flex items-center justify-center">
+        {/* Category */}
+        <span className="tag mb-5 inline-block">{post.category}</span>
+
+        {/* Cover */}
+        <div className="text-5xl h-48 bg-navy-800 rounded-xl flex items-center justify-center mb-8">
           {post.image}
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold">{post.title}</h1>
+        {/* Header */}
+        <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+          {post.title}
+        </h1>
+        <p className="text-slate-400 text-base leading-relaxed mb-6">{post.excerpt}</p>
 
-        <p className="text-lg text-gray-300">{post.excerpt}</p>
-
-        <div className="flex flex-wrap gap-4 text-sm text-gray-400 border-t border-navy-700 pt-6">
-          <div className="flex items-center gap-1">
-            <User className="w-4 h-4" />
-            {post.author}
-          </div>
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4" />
-            {post.readTime}
-          </div>
-          <div>{new Date(post.date).toLocaleDateString()}</div>
+        <div className="flex flex-wrap gap-4 text-xs text-slate-500 border-t border-white/[0.06] border-b border-white/[0.06] py-4 mb-10">
+          <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {post.author}</span>
+          <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {post.readTime}</span>
+          <span>{new Date(post.date).toLocaleDateString()}</span>
         </div>
-      </div>
 
-      {/* Content */}
-      <article className="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed whitespace-pre-line">
-        {post.content.trim()}
-      </article>
+        {/* Content */}
+        <article className="text-sm text-slate-300 leading-7 whitespace-pre-line">
+          {post.content.trim()}
+        </article>
+
+      </div>
     </div>
   );
 }

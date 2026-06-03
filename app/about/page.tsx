@@ -1,203 +1,166 @@
 import { Metadata } from "next";
 import Button from "@/components/Button";
-import { Award, Users, Target, Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Us | Western Gate Labs",
+  title: "About | Western Gate Labs",
   description:
-    "Learn about Western Gate Labs' mission, values, and expertise in AI and cybersecurity.",
+    "We're a team of engineers, security researchers, and AI practitioners building serious technology for forward-thinking organizations.",
   openGraph: {
-    title: "About Us | Western Gate Labs",
-    description: "Discover our story and commitment to innovation and security.",
+    title: "About | Western Gate Labs",
+    description: "Our mission: help organizations build and defend their digital future.",
   },
 };
 
+const values = [
+  {
+    title: "Direct, not diplomatic",
+    desc: "We tell you what we actually find — the uncomfortable parts too. Honest assessments protect clients better than reassuring ones.",
+  },
+  {
+    title: "Outcome focused",
+    desc: "Deliverables are a means to an end. What matters is whether the work actually improves your security posture or business performance.",
+  },
+  {
+    title: "Security by design",
+    desc: "Every AI system we build, every application we deliver, is designed with security as a constraint — not a checkbox at the end.",
+  },
+  {
+    title: "Practical over perfect",
+    desc: "We operate in real organizations with real constraints. We design solutions that get implemented and used — not just architecturally ideal.",
+  },
+];
+
+const stats = [
+  { value: "2021", label: "Founded" },
+  { value: "250+", label: "Projects" },
+  { value: "30+", label: "Team members" },
+  { value: "12+", label: "Countries served" },
+];
+
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-navy-900">
+
       {/* Hero */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-bold">
-            About <span className="gradient-text">Western Gate Labs</span>
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-25" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <span className="tag mb-4 inline-block">About us</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+            We work at the intersection of AI and security
           </h1>
-          <p className="text-xl text-gray-300">
-            We believe in the transformative power of artificial intelligence and
-            the critical importance of cybersecurity in the digital age.
+          <p className="text-lg text-slate-400 max-w-xl">
+            Western Gate Labs is a specialist firm that helps organizations build
+            intelligent systems and defend them — because the two problems are
+            inseparable in 2024 and beyond.
           </p>
         </div>
       </section>
 
       {/* Story */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold">Our Story</h2>
-              <p className="text-gray-300 leading-relaxed">
-                Founded in 2021, Western Gate Labs emerged from a vision to help
-                businesses navigate the intersection of innovation and security.
-                Our founding team recognized that companies struggled to adopt AI
-                while maintaining robust security posture.
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-14 items-start">
+            <div className="lg:col-span-3 space-y-5">
+              <span className="tag inline-block">Our story</span>
+              <h2 className="text-2xl font-bold text-white">
+                Built by practitioners, not generalists
+              </h2>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                We started Western Gate Labs because we kept seeing the same problem:
+                organizations were adopting AI without thinking about what that meant
+                for their security footprint, and their security teams weren't
+                equipped to reason about AI-specific risks.
               </p>
-              <p className="text-gray-300 leading-relaxed">
-                What started as a small consulting team has grown into a trusted
-                partner for Fortune 500 companies, startups, and government
-                agencies. We've delivered transformative projects across
-                healthcare, finance, retail, and technology sectors.
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Our founding team came from offensive security research and ML
+                engineering — fields that don't usually talk to each other. We built
+                a firm where they do. The result is advice and delivery that's grounded
+                in how these systems actually fail in the real world.
+              </p>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Today we work with startups shipping their first AI feature and
+                enterprises running global SOC operations. The common thread is
+                clients who want substance, not a slide deck.
               </p>
             </div>
-            <div className="glass p-8 rounded-xl">
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Years of Experience</span>
-                  <span className="text-2xl font-bold text-electric-blue">15+</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Projects Completed</span>
-                  <span className="text-2xl font-bold text-electric-blue">250+</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Team Members</span>
-                  <span className="text-2xl font-bold text-electric-blue">85+</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-400">Client Satisfaction</span>
-                  <span className="text-2xl font-bold text-electric-blue">98%</span>
-                </div>
+            <div className="lg:col-span-2">
+              <div className="glass rounded-2xl p-7 space-y-0">
+                {stats.map((s, idx, arr) => (
+                  <div
+                    key={s.label}
+                    className={`flex justify-between items-center py-4 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+                  >
+                    <span className="text-sm text-slate-500">{s.label}</span>
+                    <span className="text-xl font-bold text-white">{s.value}</span>
+                  </div>
+                ))}
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Mission & Vision</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="glass p-8 rounded-xl space-y-4">
-              <Target className="w-12 h-12 text-electric-blue" />
-              <h3 className="text-2xl font-bold">Mission</h3>
-              <p className="text-gray-300 leading-relaxed">
-                To empower organizations with cutting-edge AI and cybersecurity
-                solutions that drive growth, protect assets, and build resilient
-                digital infrastructure.
-              </p>
-            </div>
-            <div className="glass p-8 rounded-xl space-y-4">
-              <Lightbulb className="w-12 h-12 text-electric-blue" />
-              <h3 className="text-2xl font-bold">Vision</h3>
-              <p className="text-gray-300 leading-relaxed">
-                A world where businesses of all sizes can harness the power of
-                artificial intelligence while maintaining the highest standards of
-                security and privacy.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Core Values</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: Award,
-                title: "Excellence",
-                desc: "We deliver exceptional results that exceed expectations.",
-              },
-              {
-                icon: Users,
-                title: "Partnership",
-                desc: "Your success is our success. We're invested in your growth.",
-              },
-              {
-                icon: Lightbulb,
-                title: "Innovation",
-                desc: "We embrace emerging technologies and novel approaches.",
-              },
-              {
-                icon: Target,
-                title: "Integrity",
-                desc: "Trust and transparency guide everything we do.",
-              },
-            ].map((value, idx) => {
-              const Icon = value.icon;
-              return (
-                <div key={idx} className="glass p-6 rounded-xl">
-                  <Icon className="w-10 h-10 text-electric-blue mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-400">{value.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Why Choose Western Gate Labs?</h2>
-          <div className="space-y-6">
-            {[
-              {
-                title: "Proven Track Record",
-                desc: "Decades of combined experience delivering transformative projects.",
-              },
-              {
-                title: "Expert Team",
-                desc: "Certified professionals with deep expertise in AI, security, and development.",
-              },
-              {
-                title: "Holistic Approach",
-                desc: "We address technology, people, and processes for lasting impact.",
-              },
-              {
-                title: "Scalable Solutions",
-                desc: "From startups to enterprises, our solutions grow with you.",
-              },
-              {
-                title: "Continuous Support",
-                desc: "Ongoing optimization and support after implementation.",
-              },
-              {
-                title: "Security First",
-                desc: "Every solution is built with security and compliance in mind.",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="glass p-6 rounded-xl flex gap-4 border border-navy-600 hover:border-electric-blue transition"
-              >
-                <div className="w-8 h-8 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold">✓</span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
-                </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Values</span>
+            <h2 className="text-2xl font-bold text-white">How we work</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {values.map((v) => (
+              <div key={v.title} className="glass card-hover rounded-xl p-7">
+                <h3 className="text-sm font-semibold text-white mb-2">{v.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Mission */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="glass rounded-xl p-8">
+            <p className="text-xs font-semibold text-electric-blue uppercase tracking-widest mb-4">
+              Mission
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              To help organizations build AI systems that create real value — and
+              security programs that protect them reliably, without security
+              theater.
+            </p>
+          </div>
+          <div className="glass rounded-xl p-8">
+            <p className="text-xs font-semibold text-electric-blue uppercase tracking-widest mb-4">
+              Vision
+            </p>
+            <p className="text-slate-300 text-sm leading-relaxed">
+              A world where AI and security engineering are practiced as one
+              discipline — where teams build confidently because they've
+              designed trust into their systems from the start.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy-800 to-navy-700">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold">Let's Work Together</h2>
-          <p className="text-lg text-gray-300">
-            Ready to partner with us? Let's discuss your vision and goals.
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Let's work together
+          </h2>
+          <p className="text-slate-400 mb-8 text-sm">
+            Whether you need a security assessment, an AI strategy, or both —
+            we'll start with a conversation.
           </p>
           <Button href="/contact" size="lg">
-            Get in Touch
+            Get in touch
           </Button>
         </div>
       </section>
+
     </div>
   );
 }

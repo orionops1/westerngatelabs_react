@@ -6,84 +6,90 @@ import { Brain, Zap, Target, TrendingUp, Code, Cpu } from "lucide-react";
 export const metadata: Metadata = {
   title: "AI Solutions | Western Gate Labs",
   description:
-    "Comprehensive AI consulting and implementation services including machine learning, automation, and generative AI.",
+    "Enterprise AI consulting, machine learning, automation, and generative AI implementation services.",
   keywords: ["AI consulting", "machine learning", "AI automation", "generative AI"],
   openGraph: {
     title: "AI Solutions | Western Gate Labs",
-    description:
-      "Transform your business with cutting-edge artificial intelligence solutions.",
+    description: "From strategy to production — AI solutions that deliver measurable results.",
   },
 };
 
 const aiServices = [
   {
     icon: Brain,
-    title: "AI Consulting",
-    description: "Strategic guidance to identify AI opportunities and develop implementation roadmaps.",
+    title: "AI Strategy & Consulting",
+    description: "We assess your operations, identify high-impact AI opportunities, and build a roadmap that fits your timeline and budget.",
     href: "/ai-solutions",
-    features: ["Opportunity Assessment", "Strategy Development", "ROI Analysis"],
+    features: ["Opportunity assessment", "Technology selection", "ROI modeling"],
   },
   {
     icon: Zap,
-    title: "AI Automation",
-    description: "Automate repetitive processes and workflows to improve efficiency and reduce costs.",
+    title: "Process Automation",
+    description: "Replace manual, repetitive workflows with intelligent automation — from document processing to multi-step approval chains.",
     href: "/ai-solutions",
-    features: ["Process Automation", "RPA Solutions", "Workflow Optimization"],
+    features: ["RPA & intelligent agents", "Workflow orchestration", "Integration with existing systems"],
   },
   {
     icon: Target,
-    title: "AI Chatbots",
-    description: "Deploy intelligent conversational AI for customer service and internal support.",
+    title: "Conversational AI",
+    description: "Deploy LLM-powered assistants for customer support, internal knowledge retrieval, and complex Q&A at scale.",
     href: "/ai-solutions",
-    features: ["Natural Language Processing", "24/7 Support", "Multi-language"],
+    features: ["RAG architectures", "Custom fine-tuning", "Multi-language support"],
   },
   {
     icon: Code,
     title: "Machine Learning",
-    description: "Build predictive models and data-driven insights for better business decisions.",
+    description: "Build, train, and deploy production-grade models for classification, forecasting, anomaly detection, and recommendation.",
     href: "/ai-solutions",
-    features: ["Model Development", "Data Analysis", "Predictions"],
+    features: ["Custom model development", "Data pipeline engineering", "MLOps & monitoring"],
   },
   {
     icon: Cpu,
-    title: "Generative AI",
-    description: "Leverage GPT and other generative models for content creation and problem-solving.",
+    title: "Generative AI Integration",
+    description: "Embed GPT-4, Claude, Gemini, and open-source models into your products and internal tools — with proper guardrails.",
     href: "/ai-solutions",
-    features: ["Custom AI Models", "Content Generation", "Integration"],
+    features: ["API integration & orchestration", "Prompt engineering", "Safety & compliance controls"],
   },
   {
     icon: TrendingUp,
-    title: "AI Integration",
-    description: "Seamlessly integrate AI into your existing systems and workflows.",
+    title: "AI Enablement",
+    description: "Train your team to work alongside AI effectively. Workshops, playbooks, and ongoing advisory for AI-native organizations.",
     href: "/ai-solutions",
-    features: ["System Integration", "API Development", "Custom Pipelines"],
+    features: ["Team training & workshops", "AI governance frameworks", "Ongoing advisory"],
   },
 ];
 
 export default function AISolutionsPage() {
   return (
-    <div>
+    <div className="bg-navy-900">
+
       {/* Hero */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="space-y-6 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-              <span className="gradient-text">AI Solutions</span> that
-              Accelerate Growth
-            </h1>
-            <p className="text-xl text-gray-300">
-              From AI strategy and consulting to implementation and optimization,
-              we help enterprises harness the power of artificial intelligence.
-            </p>
-          </div>
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-30" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-electric-blue/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <span className="tag mb-4 inline-block">AI Solutions</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+            AI that works in the real world
+          </h1>
+          <p className="text-lg text-slate-400 max-w-xl mb-8">
+            We don't do proofs-of-concept that never ship. We take you from problem
+            definition to production — and stay accountable for results.
+          </p>
+          <Button href="/contact" size="lg">
+            Talk to our AI team
+          </Button>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
+      {/* Services */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Our AI Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Capabilities</span>
+            <h2 className="text-2xl font-bold text-white">What we build</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {aiServices.map((service, idx) => (
               <ServiceCard key={idx} {...service} />
             ))}
@@ -91,50 +97,24 @@ export default function AISolutionsPage() {
         </div>
       </section>
 
-      {/* Deep Dive */}
+      {/* Impact */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold">Why AI Matters Now</h2>
-            <p className="text-gray-300 leading-relaxed">
-              The AI revolution is reshaping every industry. Companies that adopt
-              AI today gain competitive advantages in efficiency, decision-making,
-              and innovation. We help you navigate this transformation with proven
-              strategies and technologies.
-            </p>
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Outcomes</span>
+            <h2 className="text-2xl font-bold text-white">What clients report</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {
-                title: "Business Impact",
-                points: [
-                  "40-60% reduction in operational costs",
-                  "3-5x faster time to market",
-                  "Improved customer satisfaction",
-                  "Data-driven decision making",
-                ],
-              },
-              {
-                title: "Technical Excellence",
-                points: [
-                  "Scalable architecture",
-                  "Production-ready models",
-                  "Ongoing optimization",
-                  "Security & compliance",
-                ],
-              },
-            ].map((section, idx) => (
-              <div key={idx} className="glass p-8 rounded-xl">
-                <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
-                <ul className="space-y-3">
-                  {section.points.map((point, pidx) => (
-                    <li key={pidx} className="flex gap-3 text-gray-300">
-                      <span className="text-electric-blue font-bold">✓</span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+              { value: "40–60%", label: "Reduction in operational costs" },
+              { value: "3–5×", label: "Faster processing times" },
+              { value: "87%", label: "Fraud detection improvement" },
+              { value: "< 90 days", label: "Average time to production" },
+            ].map((stat) => (
+              <div key={stat.label} className="glass rounded-xl p-6">
+                <p className="text-3xl font-bold text-electric-blue mb-1">{stat.value}</p>
+                <p className="text-sm text-slate-400">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -142,39 +122,30 @@ export default function AISolutionsPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our AI Implementation Process</h2>
-          <div className="space-y-6">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Process</span>
+            <h2 className="text-2xl font-bold text-white">How we deliver AI projects</h2>
+          </div>
+          <div className="space-y-0 glass rounded-2xl overflow-hidden">
             {[
-              {
-                phase: "Discovery",
-                desc: "Assess your business goals, current infrastructure, and AI readiness.",
-              },
-              {
-                phase: "Strategy",
-                desc: "Develop a roadmap identifying high-impact AI opportunities.",
-              },
-              {
-                phase: "Proof of Concept",
-                desc: "Validate approach with a small-scale pilot project.",
-              },
-              {
-                phase: "Implementation",
-                desc: "Deploy AI solutions with proper governance and controls.",
-              },
-              {
-                phase: "Optimization",
-                desc: "Continuously monitor and improve model performance.",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="glass p-6 rounded-xl flex gap-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center font-bold flex-shrink-0">
-                  {idx + 1}
-                </div>
+              { phase: "Discovery", desc: "Understand your data, goals, and infrastructure constraints." },
+              { phase: "Strategy", desc: "Define the use case, select the right models, and scope a pilot." },
+              { phase: "Proof of Concept", desc: "Build a working prototype with real data and validate assumptions." },
+              { phase: "Production Build", desc: "Engineer a robust, monitored system ready for real workloads." },
+              { phase: "Optimization", desc: "Track model performance and improve based on production feedback." },
+            ].map((item, idx, arr) => (
+              <div
+                key={item.phase}
+                className={`flex gap-6 p-6 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}
+              >
+                <span className="text-xs font-mono text-electric-blue/50 w-5 flex-shrink-0 mt-0.5">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
                 <div>
-                  <h3 className="font-semibold text-lg mb-1">{item.phase}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
+                  <p className="text-sm font-semibold text-white mb-0.5">{item.phase}</p>
+                  <p className="text-xs text-slate-500">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -183,17 +154,20 @@ export default function AISolutionsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold">Ready to Unlock AI's Potential?</h2>
-          <p className="text-lg text-gray-300">
-            Let's explore how artificial intelligence can transform your operations.
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Ready to explore AI for your business?
+          </h2>
+          <p className="text-slate-400 mb-8 text-sm">
+            We'll start with a free scoping call — no commitment, no pitch deck.
           </p>
           <Button href="/contact" size="lg">
-            Schedule AI Consultation
+            Schedule AI consultation
           </Button>
         </div>
       </section>
+
     </div>
   );
 }

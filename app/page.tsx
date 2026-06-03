@@ -3,209 +3,188 @@ import Link from "next/link";
 import Button from "@/components/Button";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
-import {
-  Zap,
-  Shield,
-  Globe,
-  TrendingUp,
-  CheckCircle,
-  Brain,
-} from "lucide-react";
+import { Brain, Shield, Globe, ArrowRight, Lock, Cpu, Network } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Western Gate Labs | AI & Cybersecurity Solutions",
   description:
-    "Transform operations, strengthen security, and accelerate growth through AI-powered innovation and cybersecurity expertise.",
+    "Enterprise AI solutions and cybersecurity services. We help organizations build intelligent systems and defend their digital infrastructure.",
   keywords: [
     "AI solutions",
-    "artificial intelligence consulting",
-    "cybersecurity services",
-    "web development",
+    "cybersecurity",
+    "machine learning",
+    "security consulting",
+    "AI automation",
     "digital transformation",
   ],
   openGraph: {
     title: "Western Gate Labs | AI & Cybersecurity Solutions",
     description:
-      "Transform operations, strengthen security, and accelerate growth through intelligent technology solutions.",
+      "Enterprise AI solutions and cybersecurity services for modern organizations.",
     type: "website",
   },
   alternates: {
-    canonical: "https://western-gate-labs.com",
+    canonical: "https://westerngatelabs.com",
   },
 };
 
+const stats = [
+  { value: "250+", label: "Projects delivered" },
+  { value: "98%", label: "Client retention" },
+  { value: "40%", label: "Avg. cost reduction" },
+  { value: "24/7", label: "Security monitoring" },
+];
+
+const capabilities = [
+  {
+    icon: Lock,
+    label: "Zero-trust architecture",
+  },
+  {
+    icon: Cpu,
+    label: "LLM & GenAI integration",
+  },
+  {
+    icon: Network,
+    label: "Threat intelligence",
+  },
+  {
+    icon: Brain,
+    label: "Predictive analytics",
+  },
+];
+
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fadeIn">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="gradient-text">AI-Powered Innovation</span>
-                {" "}for Modern Businesses
-              </h1>
+    <div className="bg-navy-900">
 
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Transform operations, strengthen security, and accelerate growth
-                through intelligent technology solutions. We help enterprises
-                harness AI, defend against threats, and build scalable digital
-                infrastructure.
-              </p>
+      {/* ── Hero ── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Dot grid background */}
+        <div className="absolute inset-0 dot-grid opacity-40" />
+        {/* Glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-electric-blue/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button href="/contact" size="lg">
-                  Book a Consultation
-                </Button>
-                <Button
-                  href="/services"
-                  variant="outline"
-                  size="lg"
-                >
-                  Explore Services
-                </Button>
-              </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-24 w-full">
+          <div className="max-w-3xl">
+            <span className="tag mb-6 inline-block">AI · Cybersecurity · Strategy</span>
 
-              <div className="pt-4 space-y-3">
-                <p className="text-sm text-gray-400 font-medium">
-                  Trusted by innovative companies:
-                </p>
-                <div className="flex gap-4 text-gray-400 text-sm">
-                  <span>🏢 Fortune 500 Companies</span>
-                  <span>🚀 Startups</span>
-                  <span>🏛️ Enterprises</span>
-                </div>
-              </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-white mb-6">
+              Build smarter.<br />
+              <span className="gradient-text">Stay secure.</span>
+            </h1>
+
+            <p className="text-lg text-slate-400 leading-relaxed max-w-xl mb-10">
+              Western Gate Labs helps organizations deploy AI systems, harden their
+              security posture, and build digital infrastructure that scales.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-3 mb-16">
+              <Button href="/contact" size="lg">
+                Book a consultation
+              </Button>
+              <Button href="/services" variant="secondary" size="lg">
+                Explore services
+              </Button>
             </div>
 
-            <div className="hidden lg:block relative animate-slideUp">
-              <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/20 to-electric-purple/20 rounded-2xl blur-3xl" />
-              <div className="relative glass p-8 rounded-2xl border border-electric-blue/30">
-                <div className="space-y-4">
-                  <div className="h-32 bg-navy-700 rounded-lg flex items-center justify-center text-5xl">
-                    🤖
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <div className="h-16 bg-navy-700 rounded-lg flex items-center justify-center">
-                      🔒
-                    </div>
-                    <div className="h-16 bg-navy-700 rounded-lg flex items-center justify-center">
-                      💻
-                    </div>
-                  </div>
+            {/* Stats bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-10 border-t border-white/[0.07]">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <p className="text-2xl font-bold text-white">{s.value}</p>
+                  <p className="text-xs text-slate-500 mt-1">{s.label}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
+      {/* ── Core Services ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Our Core Services
+          <div className="mb-14">
+            <span className="tag mb-3 inline-block">What we do</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              End-to-end technology expertise
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Comprehensive solutions tailored to your business needs
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             <ServiceCard
               icon={Brain}
               title="AI Solutions"
-              description="Leverage artificial intelligence to automate workflows, gain insights, and innovate faster."
+              description="From strategy to production — we design and deploy AI systems that automate decisions, reduce costs, and create competitive advantage."
               href="/ai-solutions"
-              features={["AI Consulting", "Machine Learning", "Automation"]}
+              features={["AI consulting & roadmaps", "Machine learning models", "LLM & GenAI integration", "Process automation"]}
             />
             <ServiceCard
               icon={Shield}
               title="Cybersecurity"
-              description="Protect your assets with advanced security assessments, threat detection, and incident response."
+              description="Proactive security for modern threats. We assess, harden, and monitor your infrastructure — from penetration testing to managed SOC."
               href="/cybersecurity"
-              features={["Penetration Testing", "Threat Analysis", "Compliance"]}
+              features={["Penetration testing", "Threat detection & response", "Compliance (SOC 2, HIPAA, GDPR)", "Security architecture review"]}
             />
             <ServiceCard
               icon={Globe}
               title="Web Development"
-              description="Build scalable, high-performance web applications designed for modern digital experiences."
+              description="Scalable, performant web applications built with modern stacks. Clean code, strong security defaults, and architecture that grows."
               href="/web-development"
-              features={["Custom Applications", "E-Commerce", "APIs"]}
+              features={["Custom web applications", "API design & development", "Performance optimization", "Cloud deployment"]}
             />
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* ── Why WGL ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold">
-                Why Choose Western Gate Labs?
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="tag mb-3 inline-block">Why us</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
+                Security and AI are not separate problems
               </h2>
-
-              <div className="space-y-4">
-                {[
-                  {
-                    icon: Zap,
-                    title: "AI-First Approach",
-                    desc: "We prioritize intelligent automation to maximize your competitive advantage.",
-                  },
-                  {
-                    icon: Shield,
-                    title: "Security-Focused Mindset",
-                    desc: "Every solution includes security by design and compliance best practices.",
-                  },
-                  {
-                    icon: TrendingUp,
-                    title: "Scalable Architecture",
-                    desc: "Solutions built to grow with your business, from startups to enterprises.",
-                  },
-                  {
-                    icon: CheckCircle,
-                    title: "Business-Driven Results",
-                    desc: "We measure success by your metrics: ROI, efficiency, and growth.",
-                  },
-                ].map((item, idx) => {
-                  const Icon = item.icon;
+              <p className="text-slate-400 text-base leading-relaxed mb-8">
+                Most firms specialize in one or the other. We built Western Gate Labs
+                at the intersection — because the organizations that will win in the
+                next decade need both to work together, by design, not as an afterthought.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {capabilities.map((cap) => {
+                  const Icon = cap.icon;
                   return (
-                    <div key={idx} className="flex gap-4">
-                      <div className="w-10 h-10 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5 text-white" />
+                    <div key={cap.label} className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-electric-dim flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-electric-blue" />
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-white mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-400 text-sm">{item.desc}</p>
-                      </div>
+                      <span className="text-sm text-slate-300">{cap.label}</span>
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            <div className="glass p-8 rounded-xl">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold">Our Process</h3>
+            {/* Process card */}
+            <div className="glass rounded-2xl p-8">
+              <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mb-6">
+                How we engage
+              </p>
+              <div className="space-y-0">
                 {[
-                  { step: "1", label: "Discover", desc: "Understand your business goals" },
-                  { step: "2", label: "Plan", desc: "Design tailored solutions" },
-                  { step: "3", label: "Build", desc: "Implement with precision" },
-                  { step: "4", label: "Deploy", desc: "Launch and optimize" },
-                  { step: "5", label: "Scale", desc: "Support your growth" },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="w-8 h-8 bg-electric-blue text-navy-900 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
-                      {item.step}
-                    </div>
+                  { n: "01", label: "Discovery", desc: "Understand your stack, goals, and risk profile" },
+                  { n: "02", label: "Strategy", desc: "Define scope, milestones, and success metrics" },
+                  { n: "03", label: "Delivery", desc: "Iterative builds with weekly checkpoints" },
+                  { n: "04", label: "Operate", desc: "Launch support, monitoring, and optimization" },
+                ].map((step, idx, arr) => (
+                  <div key={step.n} className={`flex gap-5 py-5 ${idx < arr.length - 1 ? "border-b border-white/[0.06]" : ""}`}>
+                    <span className="text-xs font-mono text-electric-blue/60 w-6 flex-shrink-0 mt-0.5">
+                      {step.n}
+                    </span>
                     <div>
-                      <p className="font-semibold">{item.label}</p>
-                      <p className="text-sm text-gray-400">{item.desc}</p>
+                      <p className="text-sm font-semibold text-white mb-0.5">{step.label}</p>
+                      <p className="text-xs text-slate-500">{step.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -215,35 +194,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Industries */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
+      {/* ── Testimonials ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Industries We Serve
+          <div className="mb-14">
+            <span className="tag mb-3 inline-block">Client results</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              Trusted by teams that ship
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Expertise across sectors with tailored solutions
-            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              "Healthcare",
-              "Finance",
-              "Retail",
-              "Education",
-              "Manufacturing",
-              "Technology",
-            ].map((industry) => (
-              <Link key={industry} href="/industries">
-                <div className="glass p-6 rounded-xl text-center hover:border-electric-blue transition cursor-pointer group">
-                  <p className="font-semibold text-lg group-hover:text-electric-blue transition">
-                    {industry}
-                  </p>
-                  <p className="text-sm text-gray-400 mt-2">
-                    Industry-specific solutions
-                  </p>
+            <TestimonialCard
+              quote="Their team identified critical gaps in our cloud security posture within a week. The remediation roadmap they built is now the backbone of our security program."
+              author="Sarah Chen"
+              title="CTO"
+              company="TechCorp International"
+            />
+            <TestimonialCard
+              quote="The AI automation they deployed cut our manual processing time by 40%. ROI was visible within the first quarter. Genuinely one of the best decisions we made."
+              author="Michael Rodriguez"
+              title="VP Operations"
+              company="Finance Plus"
+            />
+            <TestimonialCard
+              quote="Not just technical depth — they communicated everything clearly to non-technical stakeholders. We finally have a security posture our board understands."
+              author="Jennifer Park"
+              title="Director of Security"
+              company="Health Systems Inc"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── Industries ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-14">
+            <span className="tag mb-3 inline-block">Sectors</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              Deep experience across industries
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {["Healthcare", "Finance", "Retail", "Education", "Manufacturing", "Technology"].map((ind) => (
+              <Link key={ind} href="/industries">
+                <div className="glass card-hover rounded-xl p-5 text-center cursor-pointer">
+                  <p className="text-sm font-medium text-slate-300">{ind}</p>
                 </div>
               </Link>
             ))}
@@ -251,59 +249,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              See how our solutions have transformed businesses
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Western Gate Labs transformed our data infrastructure and improved security posture significantly. Their expertise in AI implementation was invaluable."
-              author="Sarah Chen"
-              title="CTO"
-              company="TechCorp International"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="The team's AI automation solutions reduced our operational costs by 40% while improving accuracy. Highly professional and results-oriented."
-              author="Michael Rodriguez"
-              title="VP Operations"
-              company="Finance Plus"
-              rating={5}
-            />
-            <TestimonialCard
-              quote="Outstanding cybersecurity assessment and remediation. They identified critical vulnerabilities we didn't know we had. Now we sleep better at night."
-              author="Jennifer Park"
-              title="Director of Security"
-              company="Health Systems Inc"
-              rating={5}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-navy-800 to-navy-700">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl sm:text-4xl font-bold">
-            Ready to Transform Your Business?
+      {/* ── CTA ── */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Ready to get started?
           </h2>
-          <p className="text-lg text-gray-300">
-            Let's discuss how AI and cybersecurity can drive growth for your
-            organization.
+          <p className="text-slate-400 mb-8">
+            Tell us about your project. We'll respond within one business day.
           </p>
-          <Button href="/contact" size="lg">
-            Schedule Your Free Consultation
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button href="/contact" size="lg">
+              Book a consultation <ArrowRight className="w-4 h-4" />
+            </Button>
+            <Button href="/services" variant="secondary" size="lg">
+              View all services
+            </Button>
+          </div>
         </div>
       </section>
+
     </div>
   );
 }

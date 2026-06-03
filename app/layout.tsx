@@ -67,7 +67,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className="bg-navy-800 text-gray-100 overflow-x-hidden">
+      <body className="bg-navy-900 text-slate-100 overflow-x-hidden font-sans antialiased">
         <Navigation />
         <main className="min-h-screen">{children}</main>
         <Footer />

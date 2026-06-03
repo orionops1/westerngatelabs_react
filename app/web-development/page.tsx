@@ -6,125 +6,123 @@ import { Globe, ShoppingCart, Zap, Code, Palette, TrendingUp } from "lucide-reac
 export const metadata: Metadata = {
   title: "Web Development | Western Gate Labs",
   description:
-    "Custom web development services including corporate websites, e-commerce, and performance optimization.",
-  keywords: ["web development", "custom applications", "e-commerce", "web design"],
+    "Custom web applications, APIs, and digital platforms built with modern stacks and security-first architecture.",
+  keywords: ["web development", "custom applications", "Next.js", "API development"],
   openGraph: {
     title: "Web Development | Western Gate Labs",
-    description: "Build scalable, high-performance web applications.",
+    description: "Scalable web applications built the right way.",
   },
 };
 
-const webServices = [
+const services = [
   {
     icon: Globe,
-    title: "Corporate Websites",
-    description: "Professional, high-performance websites that represent your brand.",
+    title: "Corporate Web",
+    description: "Fast, accessible, and SEO-optimized websites that represent your brand with authority.",
     href: "/web-development",
-    features: ["Responsive Design", "SEO Optimized", "CMS Integration"],
+    features: ["Next.js & React", "CMS integration", "Core Web Vitals optimized"],
   },
   {
     icon: Code,
     title: "Custom Applications",
-    description: "Tailored web applications built to solve your specific business needs.",
+    description: "Bespoke web apps engineered for your specific workflows — built to scale from day one.",
     href: "/web-development",
-    features: ["Scalable Architecture", "API Development", "Real-time Features"],
+    features: ["Scalable architecture", "Real-time features", "API design"],
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce Solutions",
-    description: "Feature-rich e-commerce platforms that drive sales and customer engagement.",
+    title: "E-Commerce",
+    description: "High-conversion commerce experiences with secure payment flows and inventory intelligence.",
     href: "/web-development",
-    features: ["Payment Integration", "Inventory Management", "Analytics"],
+    features: ["Payment integration", "Inventory management", "Analytics & conversion"],
   },
   {
     icon: Palette,
     title: "UI/UX Design",
-    description: "Beautiful, intuitive interfaces that users love to interact with.",
+    description: "Clean, functional interfaces grounded in user research — not just visual trends.",
     href: "/web-development",
-    features: ["User Research", "Prototyping", "Accessibility"],
+    features: ["User research", "Figma prototyping", "Accessibility (WCAG 2.1)"],
   },
   {
     icon: Zap,
     title: "Performance Optimization",
-    description: "Speed up your web applications for better user experience and conversion.",
+    description: "Make your existing web properties faster. Better Core Web Vitals, better conversion.",
     href: "/web-development",
-    features: ["Load Time Optimization", "Caching Strategies", "CDN Integration"],
+    features: ["Load time audits", "Caching & CDN", "Bundle optimization"],
   },
   {
     icon: TrendingUp,
-    title: "Website Maintenance",
-    description: "Ongoing support and maintenance to keep your web properties running smoothly.",
+    title: "Maintenance & Support",
+    description: "Ongoing monitoring, updates, and technical support so your platform stays reliable.",
     href: "/web-development",
-    features: ["Security Updates", "Monitoring", "Technical Support"],
+    features: ["Security patching", "Uptime monitoring", "Technical support"],
   },
+];
+
+const stack = [
+  { category: "Frontend", techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vue.js"] },
+  { category: "Backend", techs: ["Node.js", "Python", "Go", "PostgreSQL", "Redis"] },
+  { category: "Cloud & DevOps", techs: ["AWS", "Vercel", "Docker", "Kubernetes", "CI/CD"] },
+  { category: "Security", techs: ["OAuth 2.0", "WAF", "HTTPS / TLS", "OWASP standards", "CSP"] },
 ];
 
 export default function WebDevelopmentPage() {
   return (
-    <div>
+    <div className="bg-navy-900">
+
       {/* Hero */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-6 max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-              Modern Web
-              <span className="gradient-text"> Development</span> Solutions
-            </h1>
-            <p className="text-xl text-gray-300">
-              From beautiful corporate websites to complex custom applications, we
-              build web solutions that drive business results.
-            </p>
-          </div>
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-30" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <span className="tag mb-4 inline-block">Web Development</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+            Applications that perform under pressure
+          </h1>
+          <p className="text-lg text-slate-400 max-w-xl mb-8">
+            We build web platforms with the same discipline we bring to security
+            work — careful architecture, clean code, and no shortcuts.
+          </p>
+          <Button href="/contact" size="lg">
+            Start a web project
+          </Button>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
+      {/* Services */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">Our Web Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {webServices.map((service, idx) => (
-              <ServiceCard key={idx} {...service} />
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Capabilities</span>
+            <h2 className="text-2xl font-bold text-white">What we build</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((s, idx) => (
+              <ServiceCard key={idx} {...s} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technology Stack */}
+      {/* Tech stack */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Modern Tech Stack</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                category: "Frontend",
-                techs: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS"],
-              },
-              {
-                category: "Backend",
-                techs: ["Node.js", "Python", "Go", "PostgreSQL", "MongoDB"],
-              },
-              {
-                category: "Cloud & DevOps",
-                techs: ["AWS", "Google Cloud", "Azure", "Docker", "Kubernetes"],
-              },
-              {
-                category: "Security",
-                techs: ["OAuth 2.0", "JWT", "SSL/TLS", "OWASP", "WAF"],
-              },
-            ].map((group, idx) => (
-              <div key={idx} className="glass p-8 rounded-xl">
-                <h3 className="text-lg font-bold mb-4 text-electric-blue">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Stack</span>
+            <h2 className="text-2xl font-bold text-white">Technology we use</h2>
+            <p className="text-slate-500 text-sm mt-2">
+              Proven, modern, and maintainable — no unnecessary complexity.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {stack.map((group) => (
+              <div key={group.category} className="glass rounded-xl p-6">
+                <p className="text-xs font-semibold text-electric-blue mb-4 uppercase tracking-widest">
                   {group.category}
-                </h3>
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {group.techs.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-navy-700 text-gray-300 rounded-full text-sm"
-                    >
-                      {tech}
+                  {group.techs.map((t) => (
+                    <span key={t} className="px-3 py-1 bg-white/5 text-slate-300 rounded-md text-xs">
+                      {t}
                     </span>
                   ))}
                 </div>
@@ -134,97 +132,24 @@ export default function WebDevelopmentPage() {
         </div>
       </section>
 
-      {/* Web Development Phases */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Development Process</h2>
-
-          <div className="space-y-6">
-            {[
-              {
-                phase: "Discovery & Planning",
-                desc: "Understand your vision, user needs, and business goals.",
-                deliverables: ["Requirement specs", "User flows", "Wireframes"],
-              },
-              {
-                phase: "Design",
-                desc: "Create intuitive, beautiful interfaces that users love.",
-                deliverables: ["UI mockups", "Prototypes", "Design system"],
-              },
-              {
-                phase: "Development",
-                desc: "Build your application with clean, maintainable code.",
-                deliverables: ["Frontend code", "Backend APIs", "Databases"],
-              },
-              {
-                phase: "Testing & QA",
-                desc: "Comprehensive testing to ensure quality and performance.",
-                deliverables: ["Unit tests", "Integration tests", "Performance reports"],
-              },
-              {
-                phase: "Deployment",
-                desc: "Launch your application with zero downtime.",
-                deliverables: ["Production setup", "Monitoring", "Documentation"],
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="glass p-6 rounded-xl">
-                <div className="flex gap-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center font-bold flex-shrink-0">
-                    {idx + 1}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-2">{item.phase}</h3>
-                    <p className="text-gray-400 text-sm mb-3">{item.desc}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {item.deliverables.map((d) => (
-                        <span
-                          key={d}
-                          className="text-xs bg-navy-700 text-gray-300 px-2 py-1 rounded"
-                        >
-                          {d}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* Quality standards */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Standards</span>
+            <h2 className="text-2xl font-bold text-white">What we target</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Performance Metrics */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Quality Standards</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              {
-                metric: "Page Load",
-                target: "< 2 seconds",
-                importance: "Critical for user experience and SEO",
-              },
-              {
-                metric: "Uptime",
-                target: "99.9%",
-                importance: "Reliable service availability",
-              },
-              {
-                metric: "Security Score",
-                target: "A+",
-                importance: "Protected against vulnerabilities",
-              },
-              {
-                metric: "Mobile Score",
-                target: "95+",
-                importance: "Optimized for all devices",
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="glass p-6 rounded-xl">
-                <h3 className="font-bold text-electric-blue mb-2">{item.metric}</h3>
-                <p className="text-2xl font-bold mb-2">{item.target}</p>
-                <p className="text-sm text-gray-400">{item.importance}</p>
+              { metric: "Page load", target: "< 2s", note: "Core Web Vitals" },
+              { metric: "Uptime", target: "99.9%", note: "SLA-backed" },
+              { metric: "Security score", target: "A+", note: "SSL Labs / Observatory" },
+              { metric: "Lighthouse", target: "95+", note: "Mobile & desktop" },
+            ].map((item) => (
+              <div key={item.metric} className="glass rounded-xl p-6 text-center">
+                <p className="text-xs text-slate-500 mb-2">{item.metric}</p>
+                <p className="text-2xl font-bold text-electric-blue mb-1">{item.target}</p>
+                <p className="text-xs text-slate-600">{item.note}</p>
               </div>
             ))}
           </div>
@@ -232,18 +157,20 @@ export default function WebDevelopmentPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold">Ready to Build Something Great?</h2>
-          <p className="text-lg text-gray-300">
-            Let's discuss your web development needs and create an amazing digital
-            experience.
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Have a project in mind?
+          </h2>
+          <p className="text-slate-400 mb-8 text-sm">
+            Share what you're building and we'll talk through the right approach.
           </p>
           <Button href="/contact" size="lg">
-            Start Your Web Project
+            Discuss your project
           </Button>
         </div>
       </section>
+
     </div>
   );
 }

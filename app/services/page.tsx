@@ -6,169 +6,104 @@ import { Brain, Shield, Globe } from "lucide-react";
 export const metadata: Metadata = {
   title: "Services | Western Gate Labs",
   description:
-    "Our comprehensive services: AI Solutions, Cybersecurity, and Web Development.",
+    "AI solutions, cybersecurity, and web development services for modern organizations.",
   openGraph: {
     title: "Services | Western Gate Labs",
-    description: "Transform your business with our innovative technology solutions.",
+    description: "End-to-end technology expertise for forward-thinking teams.",
   },
 };
 
+const engagements = [
+  {
+    title: "Project-based",
+    desc: "Fixed scope, defined deliverables, and a clear timeline. Best for discrete initiatives.",
+    price: "From $50K",
+    features: ["Dedicated team", "Fixed timeline", "Clear deliverables", "Quality assurance"],
+  },
+  {
+    title: "Time & materials",
+    desc: "Flexible for evolving requirements. You pay for what you use, with full transparency.",
+    price: "$200–$350 / hr",
+    features: ["Flexible scope", "Senior practitioners", "Scalable team", "Weekly billing"],
+  },
+  {
+    title: "Managed retainer",
+    desc: "Ongoing partnership for continuous optimization, monitoring, and advisory.",
+    price: "$10K–$50K / mo",
+    features: ["24/7 security coverage", "Proactive monitoring", "Priority access", "Monthly reviews"],
+  },
+];
+
 export default function ServicesPage() {
   return (
-    <div>
+    <div className="bg-navy-900">
+
       {/* Hero */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl sm:text-5xl font-bold">
-            Our <span className="gradient-text">Services</span>
+      <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-30" />
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <span className="tag mb-4 inline-block">Services</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
+            Technology expertise across the full stack
           </h1>
-          <p className="text-xl text-gray-300">
-            Comprehensive technology solutions designed to transform your business.
+          <p className="text-lg text-slate-400 max-w-xl">
+            Three core practices. One integrated approach. We help organizations
+            build, protect, and optimize their digital operations.
           </p>
         </div>
       </section>
 
-      {/* Main Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      {/* Core services */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Core practices</span>
+            <h2 className="text-2xl font-bold text-white">What we do</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
             <ServiceCard
               icon={Brain}
               title="AI Solutions"
-              description="Transform your business with intelligent automation and data-driven insights."
+              description="Strategy, implementation, and production deployment of AI systems — from automation to generative AI."
               href="/ai-solutions"
-              features={["AI Consulting", "Machine Learning", "Automation"]}
+              features={["AI strategy & consulting", "Machine learning", "Process automation", "LLM integration"]}
             />
             <ServiceCard
               icon={Shield}
               title="Cybersecurity"
-              description="Protect your critical assets and maintain compliance with advanced security."
+              description="Proactive security across your attack surface — from penetration testing to managed monitoring."
               href="/cybersecurity"
-              features={["Security Assessments", "Incident Response", "Monitoring"]}
+              features={["Penetration testing", "Security assessments", "Incident response", "Managed SOC"]}
             />
             <ServiceCard
               icon={Globe}
               title="Web Development"
-              description="Build scalable, high-performance web applications for the modern digital landscape."
+              description="Scalable web applications and APIs built with modern stacks and security-first architecture."
               href="/web-development"
-              features={["Custom Applications", "E-Commerce", "Performance"]}
+              features={["Custom applications", "API development", "Cloud deployment", "Performance optimization"]}
             />
           </div>
         </div>
       </section>
 
-      {/* Service Comparison */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Engagement Models</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Project-Based",
-                desc: "Fixed scope, timeline, and budget for defined projects.",
-                price: "Starting at $50K",
-                features: [
-                  "Dedicated project team",
-                  "Fixed timeline",
-                  "Clear deliverables",
-                  "Quality guarantee",
-                ],
-              },
-              {
-                title: "Time & Materials",
-                desc: "Flexible engagement for evolving requirements and exploration.",
-                price: "$200-300/hr",
-                features: [
-                  "Flexible scope",
-                  "Experienced consultants",
-                  "Scalable team",
-                  "Transparent billing",
-                ],
-              },
-              {
-                title: "Managed Retainer",
-                desc: "Ongoing support and continuous optimization of your systems.",
-                price: "$10K-50K/month",
-                features: [
-                  "24/7 support",
-                  "Proactive monitoring",
-                  "Priority access",
-                  "Predictable costs",
-                ],
-              },
-            ].map((model, idx) => (
-              <div key={idx} className="glass p-8 rounded-xl border border-navy-600 hover:border-electric-blue transition">
-                <h3 className="text-xl font-bold mb-2">{model.title}</h3>
-                <p className="text-gray-400 text-sm mb-4">{model.desc}</p>
-                <p className="text-electric-blue font-bold text-lg mb-6">
-                  {model.price}
-                </p>
-                <ul className="space-y-3">
-                  {model.features.map((feature, fidx) => (
-                    <li key={fidx} className="text-sm text-gray-300 flex gap-2">
-                      <span className="text-electric-blue">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Model */}
+      {/* Engagement models */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12">What's Included in Every Engagement</h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Strategy & Planning",
-                items: [
-                  "Business needs assessment",
-                  "Technology roadmap",
-                  "Risk analysis",
-                  "ROI projection",
-                ],
-              },
-              {
-                title: "Implementation",
-                items: [
-                  "Expert development team",
-                  "Agile methodology",
-                  "Regular status updates",
-                  "Quality assurance",
-                ],
-              },
-              {
-                title: "Training & Support",
-                items: [
-                  "Team training",
-                  "Documentation",
-                  "Knowledge transfer",
-                  "Post-launch support",
-                ],
-              },
-              {
-                title: "Optimization",
-                items: [
-                  "Performance tuning",
-                  "Security hardening",
-                  "Scalability planning",
-                  "Continuous improvement",
-                ],
-              },
-            ].map((section, idx) => (
-              <div key={idx} className="glass p-6 rounded-xl">
-                <h3 className="text-lg font-bold mb-4">{section.title}</h3>
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Engagement models</span>
+            <h2 className="text-2xl font-bold text-white">How we work together</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {engagements.map((e) => (
+              <div key={e.title} className="glass card-hover rounded-xl p-7">
+                <h3 className="text-sm font-semibold text-white mb-1">{e.title}</h3>
+                <p className="text-xs text-slate-500 mb-4 leading-relaxed">{e.desc}</p>
+                <p className="text-lg font-bold text-electric-blue mb-5">{e.price}</p>
                 <ul className="space-y-2">
-                  {section.items.map((item, iidx) => (
-                    <li key={iidx} className="text-gray-300 text-sm flex gap-2">
-                      <span className="text-electric-blue">→</span>
-                      {item}
+                  {e.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-xs text-slate-400">
+                      <span className="w-1 h-1 rounded-full bg-electric-blue flex-shrink-0" />
+                      {f}
                     </li>
                   ))}
                 </ul>
@@ -178,70 +113,45 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-navy-800/50">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Proven Process</h2>
-
-          <div className="relative">
-            {/* Timeline */}
-            <div className="space-y-8">
-              {[
-                {
-                  phase: "Discovery",
-                  duration: "Week 1-2",
-                  desc: "Understand your business, technology stack, and objectives.",
-                },
-                {
-                  phase: "Planning",
-                  duration: "Week 3-4",
-                  desc: "Develop detailed strategy, architecture, and implementation roadmap.",
-                },
-                {
-                  phase: "Development",
-                  duration: "Month 2-3+",
-                  desc: "Build solution with regular sprints, testing, and feedback.",
-                },
-                {
-                  phase: "Deployment",
-                  duration: "Final Week",
-                  desc: "Implement, validate, and ensure smooth production launch.",
-                },
-                {
-                  phase: "Optimization",
-                  duration: "Ongoing",
-                  desc: "Monitor, optimize, and support continuous improvement.",
-                },
-              ].map((item, idx) => (
-                <div key={idx} className="glass p-6 rounded-xl flex gap-6">
-                  <div className="w-32 flex-shrink-0">
-                    <p className="text-sm text-electric-blue font-bold">
-                      {item.duration}
-                    </p>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-lg mb-1">{item.phase}</h3>
-                    <p className="text-gray-400 text-sm">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* What's included */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 section-alt">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-12">
+            <span className="tag mb-3 inline-block">Standard inclusions</span>
+            <h2 className="text-2xl font-bold text-white">Every engagement includes</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: "Business alignment", desc: "We map every deliverable to your actual goals — not just technical milestones." },
+              { title: "Agile delivery", desc: "Weekly sprints, clear updates, and room to adjust direction as you learn." },
+              { title: "Knowledge transfer", desc: "Your team understands what we built and why. No black boxes." },
+              { title: "Documentation", desc: "Everything documented — architecture, runbooks, and decision rationale." },
+            ].map((item) => (
+              <div key={item.title} className="glass rounded-xl p-6">
+                <p className="text-sm font-semibold text-white mb-1.5">{item.title}</p>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold">Ready to Get Started?</h2>
-          <p className="text-lg text-gray-300">
-            Let's discuss which services and engagement model fit your needs.
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            Not sure which service you need?
+          </h2>
+          <p className="text-slate-400 mb-8 text-sm">
+            Tell us what you're trying to solve. We'll help you figure out the right
+            starting point.
           </p>
           <Button href="/contact" size="lg">
-            Schedule Consultation
+            Talk to us
           </Button>
         </div>
       </section>
+
     </div>
   );
 }
