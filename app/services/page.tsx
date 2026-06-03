@@ -13,23 +13,26 @@ export const metadata: Metadata = {
   },
 };
 
-const engagements = [
+const engagements: { title: string; desc: string; price: string; sub: string; features: string[] }[] = [
   {
     title: "Project-based",
     desc: "Fixed scope, defined deliverables, and a clear timeline. Best for discrete initiatives.",
-    price: "From $50K",
+    price: "LKR 500,000+",
+    sub: "~ $1,700 USD",
     features: ["Dedicated team", "Fixed timeline", "Clear deliverables", "Quality assurance"],
   },
   {
     title: "Time & materials",
     desc: "Flexible for evolving requirements. You pay for what you use, with full transparency.",
-    price: "$200–$350 / hr",
+    price: "LKR 9,000 / hr",
+    sub: "~ $30 USD / hr",
     features: ["Flexible scope", "Senior practitioners", "Scalable team", "Weekly billing"],
   },
   {
     title: "Managed retainer",
     desc: "Ongoing partnership for continuous optimization, monitoring, and advisory.",
-    price: "$10K–$50K / mo",
+    price: "LKR 300,000 / mo",
+    sub: "~ $1,000 USD / mo",
     features: ["24/7 security coverage", "Proactive monitoring", "Priority access", "Monthly reviews"],
   },
 ];
@@ -98,11 +101,12 @@ export default function ServicesPage() {
               <div key={e.title} className="glass card-hover rounded-xl p-7">
                 <h3 className="text-sm font-semibold text-white mb-1">{e.title}</h3>
                 <p className="text-xs text-slate-500 mb-4 leading-relaxed">{e.desc}</p>
-                <p className="text-lg font-bold text-electric-blue mb-5">{e.price}</p>
+                <p className="text-xl font-bold text-blue-400 mb-0.5">{e.price}</p>
+                <p className="text-xs text-slate-600 mb-5">{e.sub}</p>
                 <ul className="space-y-2">
                   {e.features.map((f) => (
                     <li key={f} className="flex items-center gap-2 text-xs text-slate-400">
-                      <span className="w-1 h-1 rounded-full bg-electric-blue flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-blue-400 flex-shrink-0" />
                       {f}
                     </li>
                   ))}

@@ -52,8 +52,8 @@ export default function ContactPage() {
             Let's talk about your project
           </h1>
           <p className="text-slate-400 max-w-lg">
-            Fill in the form and we'll respond within one business day. No sales
-            pipeline — just a direct conversation.
+            Fill in the form and we'll respond within one business day. Based in
+            Malabe, Sri Lanka — working with clients globally.
           </p>
         </div>
       </section>
@@ -85,7 +85,16 @@ export default function ContactPage() {
                   <MapPin className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="text-xs text-slate-500 mb-0.5">Location</p>
-                    <p className="text-sm text-white">San Francisco, CA</p>
+                    <p className="text-sm text-white">Malabe, Sri Lanka</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-electric-blue mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="text-xs text-slate-500 mb-0.5">Phone</p>
+                    <a href="tel:+94776100099" className="text-sm text-white hover:text-electric-blue transition">
+                      +94 77 610 0099
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

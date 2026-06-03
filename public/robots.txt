@@ -1,7 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /private
-Disallow: /api
+Disallow: /admin/
+Disallow: /api/
 
-Sitemap: https://western-gate-labs.com/sitemap.xml
+Sitemap: https://westerngatelabs.com/sitemap.xml

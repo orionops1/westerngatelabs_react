@@ -82,14 +82,16 @@ export default function ContactForm() {
     setLoading(true);
 
     try {
-      // TODO: Replace with actual API call to your email service
-      // const response = await fetch("/api/contact", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(formData),
-      // });
+      const response = await fetch("/api/contact", {
+        method:  "POST",
+        headers: { "Content-Type": "application/json" },
+        body:    JSON.stringify(formData),
+      });
 
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error ?? "Failed to send");
+      }
 
       setSubmitted(true);
       setFormData({
@@ -216,6 +218,7 @@ export default function ContactForm() {
           <option value="ai">AI Solutions</option>
           <option value="cybersecurity">Cybersecurity</option>
           <option value="web">Web Development</option>
+          <option value="wordpress">WordPress Development</option>
           <option value="other">Other</option>
         </select>
       </div>

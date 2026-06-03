@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: #050810;
+  background-color: #03050f;
   color: #e2e8f0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,88 +29,133 @@ button {
   font-family: inherit;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0f1e;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e2d4a;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #2a3d60;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0a0d1a; }
+::-webkit-scrollbar-thumb { background: #1e2d5a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2a3d7a; }
 
 /* Selection */
 ::selection {
-  background-color: rgba(0, 180, 216, 0.3);
-  color: #e2e8f0;
+  background-color: rgba(37, 99, 235, 0.35);
+  color: #fff;
 }
 
-/* Focus Styles */
+/* Focus */
 :focus-visible {
-  outline: 2px solid #00b4d8;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
 
-/* Gradient Text */
+/* ─── Gradient Text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+  background: linear-gradient(135deg, #06B6D4 0%, #2563EB 60%, #7C3AED 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass Card */
+.gradient-text-warm {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glass Card ─── */
 .glass {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-/* Subtle card hover border */
+/* Card hover */
 .card-hover {
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 .card-hover:hover {
-  border-color: rgba(0, 180, 216, 0.4);
-  background: rgba(0, 180, 216, 0.04);
+  border-color: rgba(37, 99, 235, 0.45);
+  background: rgba(37, 99, 235, 0.05);
+  transform: translateY(-2px);
 }
 
-/* Dot grid background */
+/* ─── Dot grid ─── */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(0, 180, 216, 0.12) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.18) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 40px rgba(0, 180, 216, 0.08);
+/* ─── Glow effects ─── */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(37, 99, 235, 0.15), 0 0 120px rgba(37, 99, 235, 0.08);
+}
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.12);
 }
 
-/* Tag pill */
+/* ─── Tag pill ─── */
 .tag {
   display: inline-flex;
   align-items: center;
-  padding: 2px 10px;
+  padding: 3px 12px;
   border-radius: 9999px;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  background: rgba(0, 180, 216, 0.1);
-  color: #00b4d8;
-  border: 1px solid rgba(0, 180, 216, 0.2);
+  background: rgba(37, 99, 235, 0.12);
+  color: #60A5FA;
+  border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
-/* Section divider */
+/* ─── Section alternating bg ─── */
 .section-alt {
   background: rgba(255, 255, 255, 0.015);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Gradient border card ─── */
+.grad-border {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border-radius: 0.75rem;
+}
+.grad-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(37,99,235,0.4), rgba(124,58,237,0.2), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ─── Hero glow orb ─── */
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ─── Animated underline ─── */
+.animated-link {
+  position: relative;
+}
+.animated-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #2563EB;
+  transition: width 0.3s ease;
+}
+.animated-link:hover::after {
+  width: 100%;
 }

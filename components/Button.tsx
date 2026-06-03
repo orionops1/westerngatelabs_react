@@ -25,15 +25,19 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const base =
-    "font-semibold rounded-lg transition inline-flex items-center justify-center gap-2 whitespace-nowrap";
+    "font-semibold rounded-lg transition-all inline-flex items-center justify-center gap-2 whitespace-nowrap relative overflow-hidden";
 
   const variants = {
-    primary:
-      "bg-electric-blue text-navy-900 hover:brightness-110 disabled:opacity-50",
+    primary: [
+      "text-white disabled:opacity-50",
+      "bg-gradient-to-r from-blue-600 to-violet-600",
+      "hover:from-blue-500 hover:to-violet-500",
+      "shadow-lg shadow-blue-900/30",
+    ].join(" "),
     secondary:
-      "bg-white/5 text-white border border-white/10 hover:bg-white/10 disabled:opacity-50",
+      "bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20 disabled:opacity-50",
     outline:
-      "border border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-navy-900 disabled:opacity-50",
+      "border border-blue-500 text-blue-400 hover:bg-blue-500/10 disabled:opacity-50",
     ghost:
       "text-slate-400 hover:text-white hover:bg-white/5 disabled:opacity-50",
   };

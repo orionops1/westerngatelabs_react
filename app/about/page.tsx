@@ -31,7 +31,7 @@ const values = [
 ];
 
 const stats = [
-  { value: "2021", label: "Founded" },
+  { value: "2021", label: "Founded in Sri Lanka" },
   { value: "250+", label: "Projects" },
   { value: "30+", label: "Team members" },
   { value: "12+", label: "Countries served" },
@@ -45,14 +45,14 @@ export default function AboutPage() {
       <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-25" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">About us</span>
+          <span className="tag mb-4 inline-block">About us · Malabe, Sri Lanka</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
             We work at the intersection of AI and security
           </h1>
           <p className="text-lg text-slate-400 max-w-xl">
-            Western Gate Labs is a specialist firm that helps organizations build
-            intelligent systems and defend them — because the two problems are
-            inseparable in 2024 and beyond.
+            Western Gate Labs is an AI-first technology company based in Malabe,
+            Sri Lanka. We help organizations build intelligent systems on Google Cloud
+            and defend them — because the two problems are inseparable.
           </p>
         </div>
       </section>
@@ -67,21 +67,24 @@ export default function AboutPage() {
                 Built by practitioners, not generalists
               </h2>
               <p className="text-slate-400 text-sm leading-relaxed">
-                We started Western Gate Labs because we kept seeing the same problem:
-                organizations were adopting AI without thinking about what that meant
-                for their security footprint, and their security teams weren't
-                equipped to reason about AI-specific risks.
+                We started Western Gate Labs in Malabe, Sri Lanka because we kept
+                seeing the same problem: organizations were adopting AI without
+                thinking about what that meant for their security footprint, and their
+                security teams weren't equipped to reason about AI-specific risks.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Our founding team came from offensive security research and ML
-                engineering — fields that don't usually talk to each other. We built
-                a firm where they do. The result is advice and delivery that's grounded
-                in how these systems actually fail in the real world.
+                engineering. We built a firm where those disciplines work together.
+                Every AI system we design is threat-modeled. Every security engagement
+                considers AI risk vectors. The result is advice grounded in how these
+                systems actually fail in the real world.
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Today we work with startups shipping their first AI feature and
-                enterprises running global SOC operations. The common thread is
-                clients who want substance, not a slide deck.
+                Our infrastructure runs on Google Cloud — we use Vertex AI for model
+                training and deployment, BigQuery for analytics at scale, and Cloud
+                Run for containerized AI workloads. This gives clients enterprise-grade
+                AI capabilities without the overhead of managing their own ML
+                infrastructure.
               </p>
             </div>
             <div className="lg:col-span-2">
