@@ -26,10 +26,10 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "250+", label: "Projects Delivered", icon: CheckCircle2 },
-  { value: "98%", label: "Client Satisfaction", icon: Award },
-  { value: "24/7", label: "Support Available", icon: Headphones },
-  { value: "5+", label: "Years Experience", icon: TrendingUp },
+  { value: "50+", label: "Projects Delivered", icon: CheckCircle2 },
+  { value: "100%", label: "Client Satisfaction", icon: Award },
+  { value: "Fast", label: "Response Time", icon: Zap },
+  { value: "Expert", label: "Team", icon: Users },
 ];
 
 const whyChooseUs = [
@@ -202,7 +202,7 @@ export default function Home() {
                     <div className="pt-4 border-t border-slate-100">
                       <div className="flex items-center justify-between text-sm">
                         <span className="text-slate-600">Trusted by</span>
-                        <span className="font-semibold text-slate-900">250+ Clients</span>
+                        <span className="font-semibold text-slate-900">Growing Clients</span>
                       </div>
                     </div>
                   </div>

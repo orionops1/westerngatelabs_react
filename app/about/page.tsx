@@ -32,9 +32,9 @@ const values = [
 
 const stats = [
   { value: "2021", label: "Founded in Sri Lanka" },
-  { value: "250+", label: "Projects" },
-  { value: "30+", label: "Team members" },
-  { value: "12+", label: "Countries served" },
+  { value: "50+", label: "Projects Completed" },
+  { value: "10+", label: "Team Members" },
+  { value: "5+", label: "Countries Served" },
 ];
 
 export default function AboutPage() {
@@ -45,7 +45,7 @@ export default function AboutPage() {
       <section className="relative pt-28 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-25" />
         <div className="relative z-10 max-w-7xl mx-auto">
-          <span className="tag mb-4 inline-block">About us · Malabe, Sri Lanka</span>
+          <span className="tag mb-4 inline-block">About Us</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-5 max-w-3xl">
             We work at the intersection of AI and security
           </h1>
