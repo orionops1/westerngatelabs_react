@@ -1,139 +1,109 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Twitter, Github } from "lucide-react";
+
+const services = [
+  { label: "AI Solutions", href: "/ai-solutions" },
+  { label: "Cybersecurity", href: "/cybersecurity" },
+  { label: "Web Development", href: "/web-development" },
+  { label: "Industries", href: "/industries" },
+];
+
+const company = [
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
+];
+
+const legal = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const footerSections = [
-    {
-      title: "Services",
-      links: [
-        { label: "AI Solutions", href: "/ai-solutions" },
-        { label: "Cybersecurity", href: "/cybersecurity" },
-        { label: "Web Development", href: "/web-development" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { label: "About Us", href: "/about" },
-        { label: "Blog", href: "/blog" },
-        { label: "Industries", href: "/industries" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "Contact", href: "/contact" },
-      ],
-    },
-  ];
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-800 border-t border-navy-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center">
-                <span className="text-white font-black">W</span>
+    <footer className="bg-navy-900 border-t border-white/[0.06] mt-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-4">
+              <div className="w-7 h-7 rounded-md bg-electric-blue flex items-center justify-center">
+                <span className="text-navy-900 font-black text-xs">WG</span>
               </div>
-              <span className="font-bold">Western Gate Labs</span>
+              <span className="font-semibold text-sm text-white">Western Gate Labs</span>
             </Link>
-            <p className="text-gray-400 text-sm mb-6">
-              AI-powered innovation for modern businesses.
+            <p className="text-slate-500 text-sm leading-relaxed mb-5">
+              AI and cybersecurity solutions for forward-thinking organizations.
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://linkedin.com"
-                aria-label="LinkedIn"
-                className="text-gray-400 hover:text-electric-blue transition"
-              >
-                <Linkedin className="w-5 h-5" />
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-slate-500 hover:text-electric-blue transition">
+                <Linkedin className="w-4 h-4" />
               </a>
-              <a
-                href="https://twitter.com"
-                aria-label="Twitter"
-                className="text-gray-400 hover:text-electric-blue transition"
-              >
-                <Twitter className="w-5 h-5" />
+              <a href="https://twitter.com" aria-label="Twitter" className="text-slate-500 hover:text-electric-blue transition">
+                <Twitter className="w-4 h-4" />
               </a>
-              <a
-                href="https://github.com"
-                aria-label="GitHub"
-                className="text-gray-400 hover:text-electric-blue transition"
-              >
-                <Github className="w-5 h-5" />
+              <a href="https://github.com" aria-label="GitHub" className="text-slate-500 hover:text-electric-blue transition">
+                <Github className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Links Sections */}
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h3 className="font-semibold mb-4 text-white">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-electric-blue transition text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Contact Section */}
+          {/* Services */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Contact</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2 text-gray-400">
-                <Mail className="w-4 h-4" />
-                <a
-                  href="mailto:hello@westerngatelabs.com"
-                  className="hover:text-electric-blue transition"
-                >
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Services</p>
+            <ul className="space-y-2.5">
+              {services.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-sm text-slate-500 hover:text-white transition">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Company</p>
+            <ul className="space-y-2.5">
+              {company.map((c) => (
+                <li key={c.href}>
+                  <Link href={c.href} className="text-sm text-slate-500 hover:text-white transition">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Contact</p>
+            <ul className="space-y-2.5">
+              <li>
+                <a href="mailto:hello@westerngatelabs.com" className="text-sm text-slate-500 hover:text-white transition">
                   hello@westerngatelabs.com
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-gray-400">
-                <Phone className="w-4 h-4" />
-                <a
-                  href="tel:+14155552671"
-                  className="hover:text-electric-blue transition"
-                >
-                  +1 (415) 555-2671
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-gray-400">
-                <MapPin className="w-4 h-4" />
-                <span>San Francisco, CA</span>
-              </li>
+              <li className="text-sm text-slate-500">San Francisco, CA</li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
-            © {currentYear} Western Gate Labs. All rights reserved.
+        {/* Bottom */}
+        <div className="pt-8 border-t border-white/[0.05] flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-slate-600">
+            © {year} Western Gate Labs. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a href="mailto:hello@westerngatelabs.com" className="text-gray-400 hover:text-electric-blue transition">
-              Privacy Policy
-            </a>
-            <a href="mailto:hello@westerngatelabs.com" className="text-gray-400 hover:text-electric-blue transition">
-              Terms of Service
-            </a>
-            <Link href="/sitemap" className="text-gray-400 hover:text-electric-blue transition">
-              Sitemap
-            </Link>
+          <div className="flex gap-5">
+            {legal.map((l) => (
+              <Link key={l.href} href={l.href} className="text-xs text-slate-600 hover:text-slate-400 transition">
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

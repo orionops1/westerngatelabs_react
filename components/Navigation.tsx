@@ -1,97 +1,96 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
+const navItems = [
+  { label: "Services", href: "/services" },
+  { label: "AI Solutions", href: "/ai-solutions" },
+  { label: "Cybersecurity", href: "/cybersecurity" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+];
+
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Services", href: "/services" },
-    { label: "AI Solutions", href: "/ai-solutions" },
-    { label: "Cybersecurity", href: "/cybersecurity" },
-    { label: "Industries", href: "/industries" },
-    { label: "Blog", href: "/blog" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ];
+  const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass border-b border-navy-700">
+    <nav className="fixed top-0 w-full z-50 bg-navy-900/80 backdrop-blur-md border-b border-white/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
+
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-xl hover:opacity-80 transition"
+            className="flex items-center gap-2.5 font-semibold text-white hover:opacity-90 transition"
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-electric-blue to-electric-purple rounded-lg flex items-center justify-center">
-              <span className="text-white font-black">W</span>
+            <div className="w-7 h-7 rounded-md bg-electric-blue flex items-center justify-center flex-shrink-0">
+              <span className="text-navy-900 font-black text-xs">WG</span>
             </div>
-            <span className="hidden sm:inline">Western Gate Labs</span>
+            <span className="text-sm tracking-wide">Western Gate Labs</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-7">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-300 hover:text-electric-blue transition text-sm font-medium"
+                className={`text-sm font-medium transition ${
+                  pathname === item.href
+                    ? "text-electric-blue"
+                    : "text-slate-400 hover:text-white"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA */}
+          <div className="hidden md:block">
             <Link
               href="/contact"
-              className="px-6 py-2 bg-electric-blue text-navy-900 rounded-lg font-semibold hover:bg-cyan-400 transition"
+              className="px-4 py-2 text-sm font-semibold text-navy-900 bg-electric-blue rounded-md hover:brightness-110 transition"
             >
-              Book Consultation
+              Get in Touch
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile toggle */}
           <button
-            className="lg:hidden p-2 hover:bg-navy-700 rounded-lg transition"
+            className="md:hidden p-2 text-slate-400 hover:text-white transition"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
-            aria-controls="mobile-nav"
           >
-            {isOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isOpen && (
-          <div id="mobile-nav" className="lg:hidden pb-4 space-y-2 border-t border-navy-700 pt-4">
+          <div className="md:hidden pb-5 pt-2 border-t border-white/[0.06] space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2 text-gray-300 hover:text-electric-blue hover:bg-navy-700 rounded transition"
+                className="block px-3 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-white/5 rounded-md transition"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <div className="px-4 pt-2">
+            <div className="pt-3 px-3">
               <Link
                 href="/contact"
-                className="block w-full px-4 py-2 bg-electric-blue text-navy-900 rounded-lg font-semibold hover:bg-cyan-400 transition text-center"
+                className="block w-full text-center px-4 py-2.5 text-sm font-semibold text-navy-900 bg-electric-blue rounded-md hover:brightness-110 transition"
                 onClick={() => setIsOpen(false)}
               >
-                Book Consultation
+                Get in Touch
               </Link>
             </div>
           </div>
